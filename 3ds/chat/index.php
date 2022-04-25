@@ -122,11 +122,11 @@ if(isset($_GET["room"])){
 	</head>
 	<body onload="getfullchat(); setInterval(function(){chatload()},1000);">
 		<div id="contenttop">
-		Online List:
+		<a href="../">Back</a> Online List:
 		</div>
 		<div id="contentbot">
 		<div id="chatscreen"></div>
-		<input id="msg" onkeydown="check(event)"></input><button onclick="sendmess()">Send</button>
+<?php if(isset($_SESSION["ts_user"])){?><input id="msg" onkeydown="check(event)"></input><button onclick="sendmess()">Send</button><?php } else { ?> You have to be logged in! <a href="../acc/index.php">Login here</a><?php }?>
 		</div>
 <?php } else {
 	header("Location: index.php?room=original");

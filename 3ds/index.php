@@ -50,6 +50,7 @@ session_start();
 		$_SESSION["ts_points"] = $jsonD["points"];
 		?>Welcome, <?php echo "<a href='acc/acc.php'>" . $_SESSION["ts_user"] . "</a>"; ?>, you have <?php echo $_SESSION["ts_points"] . " points!"; } else { ?><a href="acc/log.php">Login</a><?php } ?></center>
 		<a href="games/"><img src="../images/games.png"></img></a>
+		<a href="chat/"><img src="../images/chat.png"></img></a>
 		</div>
 	</body>
 </html>
