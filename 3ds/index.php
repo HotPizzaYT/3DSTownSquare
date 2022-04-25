@@ -29,6 +29,9 @@ session_start();
 		<div id="contenttop">
 			<img src="../images/header3ds.png" alt="Oops! Our header could not be displayed!" />
 			<center>Welcome to 3DSTownSquare</center>
+			<center><?php 
+			echo "Ever since " . date("Y/m/d G:i:s", filectime("index.php")) . " UTC";
+			?></center>
 			<center><font color="grey">What is this?</font></center>
 			<center>3DSTS (3DSTownSquare) is a website targeted for 3DS and DSi users. This site contains many apps and games for people to play.</center>
 			<br/>
