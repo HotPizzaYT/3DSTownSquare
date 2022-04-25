@@ -40,6 +40,9 @@ if(isset($_GET["room"])){
 				width: 272px;
 			}
 		</style>
+		
+		<!-- Insert polyfill -->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CPromise.allSettled%2CPromise.any%2CPromise.prototype.finally"></script>
 		<script>
 			function getfullchat(){
 				var xhr = new XMLHttpRequest();
@@ -59,6 +62,10 @@ if(isset($_GET["room"])){
 					console.log(xhr.responseText);
 					if(xhr.responseText !== document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->")[0].replace("<br>","<br />").replace(/"/gi, "'")){
 						document.getElementById("chatscreen").innerHTML = xhr.responseText+ "<!--endmsg-->" + document.getElementById("chatscreen").innerHTML;
+						getMax().then(res => {window.maxMsg = res});
+						if(window.maxMsg <= document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->").length){
+							getfullchat();
+						}
 					} else {
 						console.log("No new chat updates");
 					}
@@ -66,6 +73,18 @@ if(isset($_GET["room"])){
 				};
 				xhr.open('GET', 'latest.php?room=<?php echo $room ?>', true);
 				xhr.send(null);
+			}
+			function getMax(){
+			return new Promise((resolve) => {
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function() {
+				if (xhr.readyState == XMLHttpRequest.DONE) {
+						resolve(xhr.responseText);
+					}
+				};
+				xhr.open('GET', 'max.php?room=<?php echo $room ?>', false);
+				xhr.send(null);
+			});
 			}
 			function sendmess(){
 				x = document.getElementById("msg").value;
