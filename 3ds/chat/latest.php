@@ -10,12 +10,15 @@ if(isset($_GET["room"]) && file_exists("data/".$_GET["room"].".json")){
 		if(count($jsonD["msg"]) != 0){
 				$message = $jsonD["msg"][0];
 		if($message["visibility"] !== "all"){
+			$color = bin2hex(substr($message["from"], 0, 3));
 			if(isset($_SESSION["ts_user"]) && $_SESSION["ts_user"] == $message["visibility"] && $message["type"] != "rawbr"){
-				echo "<span id='".$message["time"]."'><font color='".$message["color"]."'><b><u>".$message["from"].":</u></b></font> ".process($message["cont"])." [To you]</span><br />";
+				echo "<span id='".$message["time"]."'><font color='".$color."'><b><u>".$message["from"].":</u></b></font> ".process($message["cont"])." [To you]</span><br />";
 			}
 		} else {
+			
 			 if($message["type"] === "message" && $message["visibility"] === "all"){
-				echo "<span id='".$message["time"]."'><font color='".$message["color"]."'><b><u>".$message["from"].":</u></b></font> ".process($message["cont"])."</span><br />";
+				$color = bin2hex(substr($message["from"], 0, 3));
+				echo "<span id='".$message["time"]."'><font color='".$color."'><b><u>".$message["from"].":</u></b></font> ".process($message["cont"])."</span><br />";
 			} else if($message["type"] === "rawbr" && $message["visibility"] === "all"){
 				echo "<span id='".$message["time"]."'>".$message["cont"]."</span><br />";
 			}

@@ -61,6 +61,8 @@ if(isset($_GET["room"])){
 					console.log(document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->")[0].replace("<br>","<br />"));
 					console.log(xhr.responseText);
 					if(xhr.responseText !== document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->")[0].replace("<br>","<br />").replace(/"/gi, "'")){
+						
+						console.log(xhr.responseText);
 						document.getElementById("chatscreen").innerHTML = xhr.responseText+ "<!--endmsg-->" + document.getElementById("chatscreen").innerHTML;
 						getMax().then(res => {window.maxMsg = res});
 						if(window.maxMsg <= document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->").length){
