@@ -143,7 +143,8 @@ if(isset($_GET["room"])){
 		<meta name="viewport" content="width=320">
 		<meta name="description" content="3DSTownSquare Timezone Settings">
 	</head>
-	<body onload="getfullchat(); setInterval(function(){chatload()},1000);">
+	<!-- I had to set it to normal full long polling because this IN MY HAIR code keeps repeating latest message -->
+	<body onload="getfullchat(); setInterval(function(){getfullchat()},1000);">
 		<div id="contenttop">
 		<a href="../">Back</a><br/>
 		<iframe src="icons.php" width="316" height="190" frameborder="0"></iframe>
