@@ -13,10 +13,10 @@ if(isset($_GET["room"]) && file_exists("data/".$_GET["room"].".json")){
 		if($message["visibility"] !== "all"){
 			$color = bin2hex(substr($message["from"], 0, 3));
 			if($toYou){
-				echo "<span id='".$message["time"]."'><font color='".$color."'><b><u>".$message["from"].":</u></b></font> ".process($message["cont"])." [To you]</span><br /><!--endmsg-->";
+				echo "<span id='".$message["time"]."'><font color='".$color."'><b><u>".$message["from"].":</u></b></font> ".process($message["cont"])." <span class='whisper'>To you</span></span><br /><!--endmsg-->";
 			}
-			if($message["from"] == $_SESSION["ts_user"] && $message["visibility"] != $_SESSION["ts_user"]){
-				echo "<span id='".$message["time"]."'><font color='".$color."'><b><u>".$message["from"].":</u></b></font> ".process($message["cont"])." [To ".$message["visibility"]."]</span><br /><!--endmsg-->";
+			if(isset($_SESSION["ts_user"]) && $message["from"] == $_SESSION["ts_user"] && $message["visibility"] != $_SESSION["ts_user"]){
+				echo "<span id='".$message["time"]."'><font color='".$color."'><b><u>".$message["from"].":</u></b></font> ".process($message["cont"])." <span class='whisper'>To ".$message["visibility"]."</span></span><br /><!--endmsg-->";
 			}
 		}
 			 if($message["type"] === "message" && $message["visibility"] === "all"){

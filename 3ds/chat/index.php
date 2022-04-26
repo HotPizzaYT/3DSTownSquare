@@ -39,6 +39,9 @@ if(isset($_GET["room"])){
 			#msg {
 				width: 272px;
 			}
+			.whisper{
+				background-color: #00FFFF;
+			}
 		</style>
 		
 		<!-- Insert polyfill -->
