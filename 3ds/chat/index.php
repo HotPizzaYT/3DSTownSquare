@@ -35,6 +35,7 @@ if(isset($_GET["room"])){
 				height: 200px;
 				background-color: #ffffff;
 				overflow-y: scroll;
+				word-wrap: break-word; 
 			}
 			#msg {
 				width: 272px;
@@ -115,12 +116,12 @@ if(isset($_GET["room"])){
 
 					//Send the proper header information along with the request
 					http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
+					document.getElementById("msg").value = "";
 					http.onreadystatechange = function() {//Call a function when the state changes.
 						if(http.readyState == 4 && http.status == 200) {
 							// We don't need to do anything with the response text.
 							// alert(http.responseText);
-							document.getElementById("msg").value = "";
+							
 							if(http.responseText.startsWith("::message;")){
 								alert(http.responseText.replace("::message;",""));
 							}
@@ -153,7 +154,7 @@ if(isset($_GET["room"])){
 		<iframe src="icons.php" width="316" height="190" frameborder="0"></iframe>
 		</div>
 		<div id="contentbot">
-		<div id="chatscreen"></div>
+		<div id="chatscreen">Loading chat...</div>
 <?php if(isset($_SESSION["ts_user"])){?><input id="msg" onkeydown="check(event)"></input><button onclick="sendmess()">Send</button><?php } else { ?> You have to be logged in! <a href="../acc/index.php">Login here</a><?php }?>
 		</div>
 <?php } else {

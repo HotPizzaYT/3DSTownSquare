@@ -51,9 +51,11 @@ include_once("functions.php");
 					$x = explode(" ", $_POST["msg"]);
 					$who = $x[1];
 					$msg = strSplit($_POST["msg"], 2, " ");
-					if(count($jsonD["msg"])+1 >= strval($jsonD["max"])){
-						array_pop($jsonD["msg"]);
-					}
+					
+					// Don't pop off array if whisper. To the general public, it may look as if a line was removed!
+					// if(count($jsonD["msg"])+1 >= strval($jsonD["max"])){
+					//	array_pop($jsonD["msg"]);
+					// }
 					$finalmsg = array("cont"=>$msg[1],"time"=>time(),"type"=>"message","color"=>"red","visibility"=>$who,"from"=>$_SESSION["ts_user"]);
 					array_unshift($jsonD["msg"], $finalmsg);
 					$jsonString = json_encode($jsonD);

@@ -50,7 +50,7 @@
 		":mario:" => "<img alt='mario' src='i/icon_mario.png' />",
 		":luigi:" => "<img alt='luigi' src='i/icon_luigi.png' />",
 		":weegee:" => "<img alt='weegee' src='i/weegee.png' />",
-		":pokeball:" => "<img alt='pokeball src='i/buy_pokeball.jpg' />",
+		":pokeball:" => "<img alt='pokeball' src='i/buy_pokeball.jpg' />",
 		":ds:" => "<img alt='ds' src='i/icon_ds.gif' />",
 		":baby:" => "<img alt='baby' src='i/icon_baby.png' />",
 		":bheart:" => "<img alt='heart' src='i/icon_bheart.gif' />",
@@ -62,7 +62,11 @@
 		":rec:" => "<img alt='RECOMMENDED' src='i/icon_recommended.png' />",
 		":stb:" => "<img alt='STABLE' src='i/icon_stable.png' />",
 		":uns:" => "<img alt='UNSTABLE' src='i/icon_unstable.png' />",
-		":pre:" => "<img alt='pre' src='i/icon_prerelease.png' />"
+		":pre:" => "<img alt='pre' src='i/icon_prerelease.png' />",
+		":0)" => "<img alt='clown' src='i/clown.png' />",
+		":O)" => "<img alt='clown' src='i/clown.png' />",
+		":o)" => "<img alt='clown' src='i/clown.png' />"
+		
 		);
 		$txt = str_replace(array_keys($plazaEmotes), array_values($plazaEmotes), $txt);
 		

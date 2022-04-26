@@ -49,8 +49,13 @@ session_start();
 		$jsonD = json_decode($jsonF, true);
 		$_SESSION["ts_points"] = $jsonD["points"];
 		?>Welcome, <?php echo "<a href='acc/acc.php'>" . $_SESSION["ts_user"] . "</a>"; ?>, you have <?php echo $_SESSION["ts_points"] . " points!"; } else { ?><a href="acc/log.php">Login</a><?php } ?></center>
+		
+		
+		<center>
 		<a href="games/"><img src="../images/games.png"></img></a>
 		<a href="chat/"><img src="../images/chat.png"></img></a>
+		<a href="javascript:if(confirm('Forums is in beta! Are you sure you want to go to the forums?\n\nPlease send bugs and errors to HxOr1337#0907 on Discord!')){window.location='forums/';}void(0)"><img src="../images/forums.png"></img></a>
+		</center>
 		</div>
 	</body>
 </html>

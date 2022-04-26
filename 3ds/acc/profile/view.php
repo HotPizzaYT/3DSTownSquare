@@ -32,6 +32,10 @@ body, html {
 if(isset($_GET["pf"]) && file_exists("../data/" . $_GET["pf"] . ".json")){
 	$jsonF = file_get_contents("../data/".$_GET["pf"].".json");
 	$jsonD = json_decode($jsonF, true);
+	$cont = str_ireplace("\\n", "<br />", htmlspecialchars($jsonD["profile"]));
+	$cont = str_ireplace("[code]", "<pre><code>", $cont);
+	$cont = str_ireplace("[/code]", "</pre></code>", $cont);
+	
 ?>
 <img src="../../../images/header3ds.png" />
 <center>
@@ -71,7 +75,7 @@ function addComment(item, index){
 	<p>Created on <?php echo $jsonD["created"]; ?></p>
 	<p>Banned: <?php echo $jsonD["banned"]; ?></p>
 	<p>Admin: <?php echo $jsonD["admin"]; ?></p>
-	<p><?php echo str_ireplace("\\n", "<br />", htmlspecialchars($jsonD["profile"])); ?></p>
+	<p><?php echo $cont; ?></p>
 	<br /><br />
 	<div class="commentbox">
 		<div class="aqua">
