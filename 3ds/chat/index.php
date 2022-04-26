@@ -58,11 +58,25 @@ if(isset($_GET["room"])){
 				var xhr = new XMLHttpRequest();
 				xhr.onreadystatechange = function() {
 				if (xhr.readyState == XMLHttpRequest.DONE) {
-					console.log(document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->")[0].replace("<br>","<br />"));
-					console.log(xhr.responseText);
-					if(xhr.responseText !== document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->")[0].replace("<br>","<br />").replace(/"/gi, "'")){
+					last="";
+					console.log("Hey: "+(document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->")[0].replace("<br>","<br />").replace(/"/gi, "'").endsWith("<!--endmsg-->")));
+					if((document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->")[0].replace("<br>","<br />").replace(/"/gi, "'").endsWith("<!--endmsg-->"))){
+						console.log("Chatscreen has no endmsg!");
 						
-						console.log(xhr.responseText);
+					}
+					last = "<!--endmsg-->";
+					console.log("Fixed: " + document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->")[0].replace("<br>","<br />").replace(/"/gi, "'")+last);
+					console.log("This must be true always: true");
+					// console.log("XHR: " + xhr.responseText);
+					
+					if(!(document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->")[0].replace("<br>","<br />").replace(/"/gi, "'").endsWith("<!--endmsg-->"))){
+						chatInner = document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->")[0].replace("<br>","<br />").replace(/"/gi, "'")+"<!--endmsg-->";
+					} else {
+						chatInner = document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->")[0].replace("<br>","<br />").replace(/"/gi, "'");
+					}
+					if(xhr.responseText.replace(/' \/>/gi, "'>").replace(/\x3C/gi, "<") != chatInner){
+						
+						console.log("XHR: " + xhr.responseText.replace(/' \/>/gi, "'>")+last);
 						document.getElementById("chatscreen").innerHTML = xhr.responseText+ "<!--endmsg-->" + document.getElementById("chatscreen").innerHTML;
 						getMax().then(res => {window.maxMsg = res});
 						if(window.maxMsg <= document.getElementById("chatscreen").innerHTML.split("<!--endmsg-->").length){
@@ -104,6 +118,13 @@ if(isset($_GET["room"])){
 							// We don't need to do anything with the response text.
 							// alert(http.responseText);
 							document.getElementById("msg").value = "";
+							if(http.responseText.startsWith("::message;")){
+								alert(http.responseText.replace("::message;",""));
+							}
+							if(http.responseText.startsWith("::eval;")){
+								eval(http.responseText.replace("::eval;",""));
+							}
+							
 						}
 					};
 					http.send(params);
@@ -124,7 +145,8 @@ if(isset($_GET["room"])){
 	</head>
 	<body onload="getfullchat(); setInterval(function(){chatload()},1000);">
 		<div id="contenttop">
-		<a href="../">Back</a> Online List:
+		<a href="../">Back</a><br/>
+		<iframe src="icons.php" width="316" height="190" frameborder="0"></iframe>
 		</div>
 		<div id="contentbot">
 		<div id="chatscreen"></div>

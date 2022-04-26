@@ -25,7 +25,7 @@
 		"R(" => "<img alt = 'negitiveepicface' src='i/icon_unknown1.png' />",
 		"RB:" => "<img alt='rainbowepicface' src='i/rbow.png' />",
 		"R:" => "<img alt='epicface' src='i/epic.png' />",
-		":ponything:" => "<img alt='ponything' src='i/icon_ponything.png' />",
+		":ponything:" => "<img alt='ponything' src='i/icon_ponything.jpg' />",
 		":waah:" => "<img alt='waah' src='i/waah.gif' />",
 		":nuu:" => "<img alt='nuu' src='i/nuu.gif' />",
 		":caps:" => "<img alt='caps' src='i/caps.gif' />",
@@ -59,7 +59,7 @@
 		":icecream:" => "<img alt='icecream' src='i/icon_icecream.gif' />",
 		":cake:" => "<img alt='cake' src='i/icon_cake.gif' />",
 		":file:" => "<img alt='file' src='i/icon_file.png' />",
-		":rec:" => "<img alt='RECOMMENDED' src='i/icon_recoommended.png' />",
+		":rec:" => "<img alt='RECOMMENDED' src='i/icon_recommended.png' />",
 		":stb:" => "<img alt='STABLE' src='i/icon_stable.png' />",
 		":uns:" => "<img alt='UNSTABLE' src='i/icon_unstable.png' />",
 		":pre:" => "<img alt='pre' src='i/icon_prerelease.png' />"
