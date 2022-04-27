@@ -1,5 +1,7 @@
 <?php
 session_start();
+include_once("../chat/process.php");
+
 ?>
 
 <html>
@@ -63,9 +65,12 @@ pre {
 			$jsonD = json_decode($jsonF, true);
 			if(isset($_GET["post"]) && (count($jsonD["posts"])-1) >= strval($_GET["post"])){
 				$post = $jsonD["posts"][strval($_GET["post"])];
-				$cont = str_ireplace("\\n", "<br />", htmlspecialchars($post["cont"]));
+				$cont = process($post["cont"]);
+				$cont = str_ireplace("\n", "<br />", $cont	);
+				
 				$cont = str_ireplace("[code]", "<pre><code>", $cont);
 				$cont = str_ireplace("[/code]", "</pre></code>", $cont);
+				
 			} else {
 				$error = "forums.errors.postnotfound";
 			}

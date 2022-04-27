@@ -43,12 +43,7 @@ session_start();
 	</head>
 	<body>
 		<div id="contenttop">
-			<img src="../../images/header3ds.png" alt="Oops! Our header could not be displayed!" />
-			<center><b><u>Welcome to 3DSTownSquare forums!</u></b></center>
-		</div>
-		<div id="contentbot">
-		<center>
-		<?php
+				<?php
 		$error = "";
 		if(isset($_GET["t"]) && file_exists("data/topic/".$_GET["t"].".json")){
 			$jsonF = file_get_contents("data/topic/".$_GET["t"].".json");
@@ -57,6 +52,13 @@ session_start();
 			$error = "There are no posts in this topic.";
 		}
 		?>
+			<img src="../../images/header3ds.png" alt="Oops! Our header could not be displayed!" />
+			<center><b><u><?php if($error == ""){ echo $jsonD["name"]; } else { echo "Error!"; } ?></u></b></center>
+			<center><?php if($error == ""){ $jsonD["description"]; } else { echo "<font color='red'>".$error."</font>"; } ?></center>
+		</div>
+		<div id="contentbot">
+		<center>
+
 	<div class="commentbox">
 		<div class="aqua">
 			<?php if($error == ""){
@@ -80,6 +82,11 @@ session_start();
 		
 		</div>
 	</div>
+	<?php if($error == ""){
+	?>
+	<a href="post.php?t=<?php echo htmlspecialchars($_GET["t"]); ?>">Post</a>,
+	<?php
+	} ?>
 	<a href="../forums">Back</a>
 		</center>
 		</div>
