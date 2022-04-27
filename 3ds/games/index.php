@@ -29,7 +29,7 @@
 		</style>
 		<script>
 			window.selected = 0;
-			window.appData = [{"name":"Comic Book Reader 1.0","desc":"A comic book reader for the Nintendo 3DS! (beta)","rating":"Varies"},{"name":"Pong","desc":"Classic singleplayer pong! Note that only PC is supported.","rating":"Everyone"},{"name":"Venmite MMORPG","desc":"This is a beta for an upcoming MMORPG!","rating":"13+"},{"name":"BackApp","desc":"Opening this app goes back to the homepage.","rating":"Not rated"}];
+			window.appData = [{"name":"Comic Book Reader 1.0","desc":"A comic book reader for the Nintendo 3DS! (beta)","rating":"Varies"},{"name":"Pong","desc":"Classic singleplayer pong! Note that only PC is supported.","rating":"Everyone"},{"name":"Venmite MMORPG","desc":"This is a beta for an upcoming MMORPG!","rating":"13+"},{"name":"DrawTown","desc":"Draw and save to the DrawTown gallery!","rating":""},{"name":"BackApp","desc":"Opening this app goes back to the homepage.","rating":"Not rated"}];
 			window.previousSel = 0;
 			function kcheck(event){
 				if(event.keyCode == 38){
@@ -93,6 +93,9 @@
 				<a href="venmite/">Venmite MMORPG</a>
 			</div>
 			<div id="app3" class="approw">
+				<a href="draw/">DrawTown</a>
+			</div>
+			<div id="app4" class="approw">
 				<a href="../">BackApp</a>
 			</div>
 		</center>
