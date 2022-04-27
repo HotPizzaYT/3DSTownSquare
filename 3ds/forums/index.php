@@ -62,7 +62,8 @@ session_start();
 				$jsonD = json_decode($jsonF, true);
 				$name = "<a href='topic.php?t=".str_replace(".json","",$file)."'>".$jsonD["name"]."</a>";
 				$desc = $jsonD["description"];
-				$latestPost = "Latest post by: ".$jsonD["posts"][0]["from"].", \"".htmlspecialchars($jsonD["posts"][0]["title"])."\"";
+				$latest = count($jsonD["posts"]) - 1;
+				$latestPost = "Latest post by: ".$jsonD["posts"][$latest]["from"].", \"".htmlspecialchars($jsonD["posts"][$latest]["title"])."\"";
 				echo "<div class='crow' alt='".$desc."'>" . $name . "<br/><font color='grey'>".$latestPost."</font></div>";
 			}
 		}

@@ -55,7 +55,7 @@ if(isset($_GET["room"])){
 					document.getElementById("chatscreen").innerHTML = (xhr.responseText);
 				}
 				};
-				xhr.open('GET', 'innerchat.php?room=<?php echo $room ?>', true);
+				xhr.open('GET', 'innerch.php?room=<?php echo $room ?>', true);
 				xhr.send(null);
 			}
 			function chatload(){

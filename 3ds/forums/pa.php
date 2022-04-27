@@ -13,7 +13,7 @@ body, html {
 				$jsonD = json_decode($jsonF, true);
 				$posts = $jsonD["posts"];
 				$newPost = array("title"=>$_POST["title"],"from"=>$_SESSION["ts_user"],"cont"=>$_POST["cont"],"time"=>time(),"com"=>array());
-				array_unshift($jsonD["posts"], $newPost);
+				array_push($jsonD["posts"], $newPost);
 				$newj = json_encode($jsonD);
 				file_put_contents("data/topic/".$_POST["topic"].".json", $newj);
 				$id = count($jsonD["posts"]) - 1;
