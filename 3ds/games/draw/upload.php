@@ -8,14 +8,14 @@ if(isset($_POST["i"]) && isset($_POST["t"]) && isset($_SESSION["ts_user"])){
 		$id = rand(1000,3999);
 		$arry = array("from"=>$_SESSION["ts_user"],"time"=>time(),"src"=>"default","title"=>$_POST["t"]);
 		$aencode = json_encode($arry);
-		if(!(file_exists("data/".$id.".json"))){
+		//if(!(file_exists("data/".$id.".json"))){
 			file_put_contents("data/".$id.".json",$aencode);
 			list($type, $data) = explode(';', $data);
 			list(, $data)      = explode(',', $data);
 			$data = base64_decode($data);
 
 			file_put_contents('out/'.$id.'.png', $data);
-		}
+		//}
 	}
 	
 }
