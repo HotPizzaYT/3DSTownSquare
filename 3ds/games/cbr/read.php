@@ -1,4 +1,5 @@
 <?php
+$trigger = false;
 if(isset($_GET["id"]) && file_exists("data/" . $_GET["id"] . "/info.php")){
 	include_once("data/".$_GET["id"]."/info.php");
 ?>
@@ -44,7 +45,7 @@ if(isset($_GET["id"]) && file_exists("data/" . $_GET["id"] . "/info.php")){
 			pageMax = <?php echo $cbPages ?>;
 			pagePrefix = "data/<?php echo $_GET["id"] ?>/pages/<?php echo $cbprefix; ?>";
 			function load(){
-				document.getElementById("ss").innerHTML = script[page].replace(/\\n/gi, "<br />");
+				document.getElementById("ss").innerHTML = script[page].replace(/\n/gi, "<br />");
 			}
 			function next(){
 				inRange = ((page + 1) <= <?php if($startsWithZero){ echo "(pageMax - 1)"; } else { echo "pageMax"; }?>);
@@ -93,7 +94,7 @@ if(isset($_GET["id"]) && file_exists("data/" . $_GET["id"] . "/info.php")){
 		</div>
 	</body>
 </html>
-<?php } else if(isset($_GET["id"]) && $_GET["id"] === "1"){ 
+<?php } else if($trigger){ 
 ?>
 That comic is coming soon! While you wait, why don't you play some games? <a href="../">Back</a>
 <?php } else { ?>

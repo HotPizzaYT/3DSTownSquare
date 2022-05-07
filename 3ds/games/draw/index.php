@@ -83,12 +83,17 @@ body, html {
             case "white":
                 x = "white";
                 break;
+			case "skin":
+				x = "#ffd090";
+				break;
+			case "brown":
+				x = "#804000";
+				break;
+			// Add more colors
 			case "custom":
 				x = prompt("Custom color?");
 				break;
         }
-        if (x == "white") y = 14;
-        else y = 2;
 		document.getElementById("pensize").style.backgroundColor = x;
     
     }
@@ -140,8 +145,8 @@ http.send(params);
 				currX = e.touches[0].clientX - canvas.offsetLeft;
 				currY = e.touches[0].clientY - canvas.offsetTop;
 			} else {
-				currX = e.clientX - canvas.offsetLeft;
-				currY = e.clientY - canvas.offsetTop;
+				currX = e.pageX - canvas.offsetLeft;
+				currY = e.pageY - canvas.offsetTop;
 			}
 			ctx.lineWidth = 64;    
             flag = true;
@@ -168,8 +173,8 @@ http.send(params);
 				currX = e.touches[0].clientX - canvas.offsetLeft;
 				currY = e.touches[0].clientY - canvas.offsetTop;
 			} else {
-				currX = e.clientX - canvas.offsetLeft;
-				currY = e.clientY - canvas.offsetTop;
+				currX = e.pageX - canvas.offsetLeft;
+				currY = e.pageY - canvas.offsetTop;
 			}
                 draw();
             }
@@ -216,6 +221,7 @@ http.send(params);
         <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
 		<input type="button" value="exit" onclick="window.location='../'">
 		<input type="button" value="view works" onclick="window.location='works.php'">
+		<input type="button" value="play game" onclick="window.location='rooms.php'">
 		
     </body>
     </html>

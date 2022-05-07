@@ -35,7 +35,7 @@ session_start();
 			<center><font color="grey">What is this?</font></center>
 			<center>3DSTS (3DSTownSquare) is a website targeted for 3DS and DSi users. This site contains many apps and games for people to play.</center>
 			<br/>
-			<marquee>News: 3DSTownSquare is now out of beta! Suprise! Enjoy the rest of the site. :)</marquee>
+			<marquee>News: 3DSTownSquare is now in beta testing! Please wait for release 1.0 on <a href="http://3dstownsquare.com/" target="_blank">http://3dstownsquare.com/</a></marquee>
 		</div>
 		<div id="contentbot">
 		<center>
@@ -54,6 +54,7 @@ session_start();
 		<a href="chat/"><img src="../images/ch.png"></img></a>
 		<a href="javascript:if(confirm('Forums is in beta! Are you sure you want to go to the forums?\n\nPlease send bugs and errors to HxOr1337#0907 on Discord!')){window.location='forums/';}void(0)"><img src="../images/forums.png"></img></a>
 		</center>
+		<span style="position:absolute;top:410px;color:grey;">Beta 1.0.0_3 (04282022)</span>
 		</div>
 	</body>
 </html>

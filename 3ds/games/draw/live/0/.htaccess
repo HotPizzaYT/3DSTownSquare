@@ -1,0 +1,9 @@
+# STRONG HTACCESS PROTECTION
+<Files ".key">
+Order allow,deny
+Deny from all
+</Files>
+<Files "deny">
+Order allow,deny
+Deny from all
+</Files>

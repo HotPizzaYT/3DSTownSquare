@@ -112,7 +112,7 @@
 				<span id="c0n" class="mature">Sporkbob Schitbag</span> [FREE] <button onclick="read(0);">Read</button>
 				</div>
 				<div class="crow" id="c1" onclick="selectNew(1)">
-				<span id="c1n">Omega's untitled comic</span> [FREE] <button onclick="read(1);">Read</button>
+				<span id="c1n">Then and Now</span> [FREE] <button onclick="read(1);">Read</button>
 				</div>
 				<div class="crow" id="c2" onclick="selectNew(2)">
 				<span id="c2n">ESC [Destiny]</span> [FREE] <button onclick="read(2);">Read</button>

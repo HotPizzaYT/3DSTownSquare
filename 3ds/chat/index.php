@@ -1,4 +1,5 @@
 <?php
+$threeds = true;
 session_start();
 if(isset($_GET["room"])){
 	if(file_exists("data/".$_GET["room"].".json")){
@@ -9,7 +10,10 @@ if(isset($_GET["room"])){
 		$jsonF = file_get_contents("data/original.json");
 	}
 	$jsonD = json_decode($jsonF, true);
-
+	include_once("test.php");
+	if($threeds == false){
+		header("Location: dsi.php?room=".$_GET["room"]);
+	}
 ?>
 
 <html>
@@ -18,14 +22,17 @@ if(isset($_GET["room"])){
 			body {
 				margin: 0px;
 				width: 320px;
-				background-color: #fffff;
+				background-color: #ffffff;
 				font-size: 12px;
 			}
 			#contenttop {
 				background-color: #f0f0f0;
 				height: 208px;
 			}
-			
+			.conttop {
+				background-color: #f0f0f0;
+				height: 208px;
+			}
 			#contentbot {
 				background-color: #f0f0f0;
 				height: 222px;
@@ -35,7 +42,16 @@ if(isset($_GET["room"])){
 				height: 200px;
 				background-color: #ffffff;
 				overflow-y: scroll;
-				word-wrap: break-word; 
+			}
+			.scrollable {
+				overflow-y: scroll;
+			}
+			.test {
+				height: 100px;
+			}
+			.h200 {
+				height: 140px;
+				background-color: #fff;
 			}
 			#msg {
 				width: 272px;
@@ -46,18 +62,33 @@ if(isset($_GET["room"])){
 		</style>
 		
 		<!-- Insert polyfill -->
-		<script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CPromise.allSettled%2CPromise.any%2CPromise.prototype.finally"></script>
-		<script>
+		<script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=XMLHttpRequest%2CMediaQueryList.prototype.addEventListener"></script>
+		<script type="text/javascript">
+			function lc(xhr){
+				document.getElementById("chatscreen").innerHTML = (xhr.responseText);
+			}
 			function getfullchat(){
 				var xhr = new XMLHttpRequest();
-				xhr.onreadystatechange = function() {
-				if (xhr.readyState == XMLHttpRequest.DONE) {
-					document.getElementById("chatscreen").innerHTML = (xhr.responseText);
+				// xhr.onload = lc;
+				xhr.onreadystatechange = function(){
+					if(this.readyState == 4 && this.status == 200){
+						lc(xhr);
+					}
 				}
-				};
 				xhr.open('GET', 'innerch.php?room=<?php echo $room ?>', true);
 				xhr.send(null);
 			}
+			function getIcons(){
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function() {
+				if (xhr.readyState == XMLHttpRequest.DONE) {
+					document.getElementById("nav").innerHTML = (xhr.responseText);
+				}
+				};
+				xhr.open('GET', 'icons.php', true);
+				xhr.send(null);
+			}
+			/*
 			function chatload(){
 				var xhr = new XMLHttpRequest();
 				xhr.onreadystatechange = function() {
@@ -94,6 +125,8 @@ if(isset($_GET["room"])){
 				xhr.open('GET', 'latest.php?room=<?php echo $room ?>', true);
 				xhr.send(null);
 			}
+			
+			/*
 			function getMax(){
 			return new Promise((resolve) => {
 				var xhr = new XMLHttpRequest();
@@ -106,6 +139,7 @@ if(isset($_GET["room"])){
 				xhr.send(null);
 			});
 			}
+			*/
 			function sendmess(){
 				x = document.getElementById("msg").value;
 				if(document.getElementById("msg").value != "" || document.getElementById("msg").value == null){
@@ -142,19 +176,23 @@ if(isset($_GET["room"])){
 					sendmess();
 				}
 			}
+			function x(){
+				getfullchat
+			}
+			x();
 		</script>
 		<title>3DSTownSquare</title>
 		<meta name="viewport" content="width=320">
 		<meta name="description" content="3DSTownSquare Timezone Settings">
 	</head>
 	<!-- I had to set it to normal full long polling because this IN MY HAIR code keeps repeating latest message -->
-	<body onload="getfullchat(); setInterval(function(){getfullchat()},1000);">
-		<div id="contenttop">
+	<body onload="getIcons(); getfullchat(); setInterval(getfullchat, 1000);">
+		<div id="contenttop" class="conttop">
 		<a href="../">Back</a><br/>
-		<iframe src="icons.php" width="316" height="190" frameborder="0"></iframe>
+		<div id="nav" class="scrollable h200"></div>
 		</div>
 		<div id="contentbot">
-		<div id="chatscreen">Loading chat...</div>
+		<div id="chatscreen" class="scrollable test">Loading chat...</div>
 <?php if(isset($_SESSION["ts_user"])){?><input id="msg" onkeydown="check(event)"></input><button onclick="sendmess()">Send</button><?php } else { ?> You have to be logged in! <a href="../acc/index.php">Login here</a><?php }?>
 		</div>
 <?php } else {
