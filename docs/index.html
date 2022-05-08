@@ -2,10 +2,38 @@
 
 <html>
 	<head>
+	<script>
+	function formatAMPM(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  return strTime;
+}
+	function load(){
+		if(window.navigator.userAgent.includes("Nintendo DSi")){ 
+			console.log("isDSi");
+			document.body.style.width = "240px";
+			document.getElementById("viewport").content = "width=240";
+			document.getElementById("header").width = "240";
+		} else {
+			console.log("notDSi");
+			document.body.style.width = "320px";
+			document.getElementById("viewport").content = "width=320";
+			document.getElementById("header").width = "320";
+		}
+		fromTime = formatAMPM(new Date(46800000));
+		toTime = formatAMPM(new Date(104400000));
+		from.innerText = fromTime;
+		to.innerText = toTime;
+	}
+	</script>
 		<style>
 			body {
 				margin: 0px;
-				width: 320px;
 				background-color: #fffff;
 				font-size: 12px;
 			}
@@ -20,12 +48,12 @@
 			}
 		</style>
 		<title>3DSTownSquare is launching soon!</title>
-		<meta name="viewport" content="width=320">
+		<meta name="viewport" id="viewport" content="width=320">
 		<meta name="description" content="Get ready for 5/24/2022">
 	</head>
-	<body>
+	<body style="width: 320px" onload="load()">
 		<div id="contenttop">
-			<img src="header3ds.png" alt="Oops! Our header could not be displayed!" />
+			<img id="header" width="320" src="header3ds.png" alt="Oops! Our header could not be displayed!" />
 			<center>Welcome to 3DSTownSquare</center>
 			<center><font color="grey">What is this?</font></center>
 			<center>3DSTownSquare is about to launch soon!</center>
@@ -43,7 +71,7 @@
 			<br/>On day of release, this page will redirect to <b>3dstownsquare.com</b> and no longer be a notice  
 			<br />
 			<br />
-			A little demo has been launched from <span id="from">9:00 AM CST</span> to <span id="to">11:00 PM CST</span> on either <a href="http://3dstownsquare.loca.lt/">http://3dstownsquare.loca.lt/</a> or <a href="http://3dsts.loca.lt/">http://3dsts.loca.lt/</a>.
+			A little demo has been launched from <span id="from">9:00 AM CST</span> to <span id="to">11:00 PM CST</span> <b>your timezone</b> on either <a href="http://3dstownsquare.loca.lt/">http://3dstownsquare.loca.lt/</a> or <a href="http://3dsts.loca.lt/">http://3dsts.loca.lt/</a>.
 			<br />
 			<a href="javascript:alert('You have to allow access from another device that is on the same network. There is nothing I can do about this, unfortunately.');void(0);">Help, I can't access from my DSi/3DS!</a>
 			</center>

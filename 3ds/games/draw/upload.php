@@ -16,6 +16,10 @@ if(isset($_POST["i"]) && isset($_POST["t"]) && isset($_SESSION["ts_user"])){
 
 			file_put_contents('out/'.$id.'.png', $data);
 		//}
+	} else {
+		echo "title2long";
 	}
 	
+} else {
+	echo "notSetOrNotLoggedIn";
 }

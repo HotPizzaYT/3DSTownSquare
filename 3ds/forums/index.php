@@ -1,5 +1,17 @@
 <?php
 session_start();
+$width = "320";
+$height1 = "208";
+$height2 = "222";
+if(strpos($_SERVER["HTTP_USER_AGENT"], "Nintendo DSi") !== false){
+	$width = "240";
+	$height1 = "176";
+	$height2 = "176";
+} else {
+	$width = "320";
+}
+$cbp = (78.125 / 100) * intval($width);
+$cbp1 = strval($cbp);
 ?>
 
 <html>
@@ -7,23 +19,23 @@ session_start();
 		<style>
 			body {
 				margin: 0px;
-				width: 320px;
+				width: <?php echo $width; ?>px;
 				background-color: #fffff;
 				font-size: 12px;
 			}
 			#contenttop {
 				background-color: #f0f0f0;
-				height: 208px;
+				height: <?php echo $height1; ?>px;
 			}
 			
 			#contentbot {
 				background-color: #f0f0f0;
-				height: 222px;
+				height: <?php echo $height2; ?>px;
 				overflow-y: scroll;
 				word-wrap: break-word;
 			}
 .commentbox {
-	width: 250px;
+	width: <?php echo $cbp1; ?>px;
 	outline: 1px solid black;
 	min-height: 200px;
 }
@@ -38,12 +50,12 @@ session_start();
 }
 		</style>
 		<title>3DSTownSquare forums</title>
-		<meta name="viewport" content="width=320">
+		<meta name="viewport" content="width=<?php echo $width; ?>">
 		<meta name="description" content="Welcome to 3DSTownSquare forums. It's a place to post about whatever you want!">
 	</head>
 	<body>
 		<div id="contenttop">
-			<img src="../../images/header3ds.png" alt="Oops! Our header could not be displayed!" />
+			<img src="../../images/header3ds.png" width="<?php echo $width; ?>" alt="Oops! Our header could not be displayed!" />
 			<center><b><u>Welcome to 3DSTownSquare forums!</u></b></center>
 		</div>
 		<div id="contentbot">

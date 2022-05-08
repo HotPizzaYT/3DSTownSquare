@@ -1,5 +1,17 @@
 <?php
 session_start();
+$width = "320";
+$height1 = "208";
+$height2 = "222";
+if(strpos($_SERVER["HTTP_USER_AGENT"], "Nintendo DSi") !== false){
+	$width = "240";
+	$height1 = "176";
+	$height2 = "176";
+} else {
+	$width = "320";
+}
+$cbp = (78.125 / 100) * intval($width);
+$cbp1 = strval($cbp);
 ?>
 
 <html>
@@ -7,18 +19,18 @@ session_start();
 		<style>
 			body {
 				margin: 0px;
-				width: 320px;
+				width: <?php echo $width; ?>px;
 				background-color: #fffff;
 				font-size: 12px;
 			}
 			#contenttop {
 				background-color: #f0f0f0;
-				height: 208px;
+				height: <?php echo $height1; ?>px;
 			}
 			
 			#contentbot {
 				background-color: #f0f0f0;
-				height: 222px;
+				height: <?php echo $height2; ?>px;
 				overflow-y: scroll;
 				word-wrap: break-word;
 			}
@@ -38,7 +50,7 @@ session_start();
 }
 		</style>
 		<title>3DSTownSquare forums</title>
-		<meta name="viewport" content="width=320">
+		<meta name="viewport" content="width=<?php echo $width; ?>">
 		<meta name="description" content="Welcome to 3DSTownSquare forums. It's a place to post about whatever you want!">
 	</head>
 	<body>
@@ -52,7 +64,7 @@ session_start();
 			$error = "There are no posts in this topic.";
 		}
 		?>
-			<img src="../../images/header3ds.png" alt="Oops! Our header could not be displayed!" />
+			<img src="../../images/header3ds.png" width="<?php echo $width; ?>" alt="Oops! Our header could not be displayed!" />
 			<center><b><u><?php if($error == ""){ echo $jsonD["name"]; } else { echo "Error!"; } ?></u></b></center>
 			<center><?php if($error == ""){ $jsonD["description"]; } else { echo "<font color='red'>".$error."</font>"; } ?></center>
 		</div>
@@ -62,7 +74,7 @@ session_start();
 		<form action="pa.php" method="post">
 			<?php if(isset($_SESSION["ts_user"])){
 			?>
-				<input type="text" name="topic" hidden value="<?php echo $_GET["t"] ?>" />
+				<input type="text" name="topic" style="display: none;" hidden value="<?php echo $_GET["t"] ?>" />
 				<h2>Post</h2>
 				Title: <input type="text" name="title" placeholder="This is where your title goes" maxlength="32" /><br />
 				Content:<br />

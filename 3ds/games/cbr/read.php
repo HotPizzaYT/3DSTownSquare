@@ -1,7 +1,26 @@
 <?php
+session_start();
+$width = "320";
+$height1 = "208";
+$height2 = "222";
+if(strpos($_SERVER["HTTP_USER_AGENT"], "Nintendo DSi") !== false){
+	$width = "240";
+	$height1 = "176";
+	$height2 = "176";
+} else {
+	$width = "320";
+}
+$cbp = (78.125 / 100) * intval($width);
+$cbp1 = strval($cbp);
+?>
+
+<?php
+
 $trigger = false;
 if(isset($_GET["id"]) && file_exists("data/" . $_GET["id"] . "/info.php")){
 	include_once("data/".$_GET["id"]."/info.php");
+	
+	
 ?>
 
 <html>
@@ -9,18 +28,18 @@ if(isset($_GET["id"]) && file_exists("data/" . $_GET["id"] . "/info.php")){
 		<style>
 			body {
 				margin: 0px;
-				width: 320px;
+				width: <?php echo $width; ?>px;
 				background-color: #fffff;
 				font-size: 12px;
 			}
 			#contenttop {
 				background-color: #f0f0f0;
-				height: 208px;
+				height: <?php echo $height1; ?>px;
 			}
 			
 			#contentbot {
 				background-color: #f0f0f0;
-				height: 222px;
+				height: <?php echo $height2; ?>px;
 			}
 			.upperheader {
 				background-color: #ff8000;
@@ -35,7 +54,7 @@ if(isset($_GET["id"]) && file_exists("data/" . $_GET["id"] . "/info.php")){
 				background-color: #33CCFF;
 			}
 			.comicPage {
-				width: 320px;
+				width: <?php echo $width; ?>px;
 			}
 
 		</style>
@@ -71,12 +90,12 @@ if(isset($_GET["id"]) && file_exists("data/" . $_GET["id"] . "/info.php")){
 			}
 		</script>
 		<title>Comic Book Reader 1.0 (Beta)</title>
-		<meta name="viewport" content="width=320">
+		<meta name="viewport" content="width=<?php echo $width; ?>">
 		<meta name="description" content="Welcome to 3DSTownSquare Here you can find many apps and games designed for the 3DS!">
 	</head>
 	<body onload="setTimeout(load(), 2000)">
 		<div id="contenttop">
-			<img src="../../../images/header3ds.png" alt="Oops! Our header could not be displayed!" />
+			<img src="../../../images/header3ds.png" width="<?php echo $width; ?>" alt="Oops! Our header could not be displayed!" />
 			<center>You are now reading "<?php echo $cbname; ?>"</center>
 			<div style="overflow-y: scroll; height: 130px;" id="ss">
 				Loading script...

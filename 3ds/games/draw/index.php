@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <style>
 body, html {
@@ -121,18 +124,22 @@ body, html {
 var http = new XMLHttpRequest();
 var url = 'upload.php';
 var t = encodeURIComponent(prompt("What should you name this arwork?"));
-var params = 'i=' + encodeURIComponent(canvas.toDataURL()) + "&t=" + t;
+var params = 'i=' + encodeURIComponent(canvas.toDataURL()) + "&&t=" + t;
 http.open('POST', url, true);
 
 //Send the proper header information along with the request
 http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
+http.setRequestHeader('Cookie', document.cookie);
+alert(document.cookie);
 http.onreadystatechange = function() {//Call a function when the state changes.
-    if(http.readyState == 4 && http.status == 200) {
-        alert("Uploaded");
+    if(this.readyState == 4 && this.status == 200) {
+        alert("Uploaded, " + http.responseText);
+		alert(params);
+		document.getElementById("dbg").innerText = params;
+		alert(t);
     }
 }
-http.send(params);
+http.send(params.toString());
     }
 	function findxy(res, e) {
         if (res == 'down') {
@@ -222,6 +229,6 @@ http.send(params);
 		<input type="button" value="exit" onclick="window.location='../'">
 		<input type="button" value="view works" onclick="window.location='works.php'">
 		<input type="button" value="play game" onclick="window.location='rooms.php'">
-		
+		<div id="dbg">DEBUG BOX: Debugging info will show here</div>
     </body>
     </html>

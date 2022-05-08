@@ -1,5 +1,15 @@
 <?php
 session_start();
+$width = "320";
+$height1 = "208";
+$height2 = "222";
+if(strpos($_SERVER["HTTP_USER_AGENT"], "Nintendo DSi") !== false){
+	$width = "240";
+	$height1 = "176";
+	$height2 = "176";
+} else {
+	$width = "320";
+}
 ?>
 
 <html>
@@ -7,27 +17,36 @@ session_start();
 		<style>
 			body {
 				margin: 0px;
-				width: 320px;
+				width: <?php echo $width; ?>px;
 				background-color: #fffff;
 				font-size: 12px;
 			}
 			#contenttop {
 				background-color: #f0f0f0;
-				height: 208px;
+				height: <?php echo $height1; ?>px;
 			}
 			
 			#contentbot {
 				background-color: #f0f0f0;
-				height: 222px;
+				height: <?php echo $height2; ?>px;
+			}
+			.ctop {
+				background-color: #f0f0f0;
+				height: <?php echo $height1; ?>px;
+			}
+			
+			.cbot {
+				background-color: #f0f0f0;
+				height: <?php echo $height2; ?>px;
 			}
 		</style>
 		<title>3DSTownSquare Home</title>
-		<meta name="viewport" content="width=320">
+		<meta name="viewport" content="width=<?php echo $width; ?>">
 		<meta name="description" content="Welcome to 3DSTownSquare Here you can find many apps and games designed for the 3DS!">
 	</head>
 	<body>
-		<div id="contenttop">
-			<img src="../images/header3ds.png" alt="Oops! Our header could not be displayed!" />
+		<div id="contenttop" class="ctop">
+			<img src="../images/header3ds.png" style="width: <?php echo $width . "px"; ?>;" alt="Oops! Our header could not be displayed!" />
 			<center>Welcome to 3DSTownSquare</center>
 			<center><?php 
 			echo "Ever since " . date("Y/m/d G:i:s", filectime("index.php")) . " UTC";
@@ -37,7 +56,7 @@ session_start();
 			<br/>
 			<marquee>News: 3DSTownSquare is now in beta testing! Please wait for release 1.0 on <a href="http://3dstownsquare.com/" target="_blank">http://3dstownsquare.com/</a></marquee>
 		</div>
-		<div id="contentbot">
+		<div id="contentbot" class="cbot">
 		<center>
 		<?php if(isset($_SESSION["ts_user"]) && isset($_SESSION["ts_points"])){ 
 		
@@ -54,7 +73,8 @@ session_start();
 		<a href="chat/"><img src="../images/ch.png"></img></a>
 		<a href="javascript:if(confirm('Forums is in beta! Are you sure you want to go to the forums?\n\nPlease send bugs and errors to HxOr1337#0907 on Discord!')){window.location='forums/';}void(0)"><img src="../images/forums.png"></img></a>
 		</center>
-		<span style="position:absolute;top:410px;color:grey;">Beta 1.0.0_3 (04282022)</span>
+		
 		</div>
+		<span style="position:absolute;bottom:0px;color:grey;">Beta 1.1.0_0 (04282022)</span>
 	</body>
 </html>

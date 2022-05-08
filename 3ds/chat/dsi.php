@@ -22,8 +22,8 @@ if(isset($_GET["room"])){
 				font-size: 12px;
 			}
 			#contenttop {
-				background-color: #f0f0f0;
-				height: 138px;
+				background-color: <?php echo $jsonD["color"] ?>;
+				height: 176px;
 			}
 			.conttop {
 				background-color: #f0f0f0;
@@ -35,7 +35,7 @@ if(isset($_GET["room"])){
 				background-color: <?php echo $jsonD["color"] ?>;
 			}
 			#chatscreen {
-				height: 138px;
+				height: 160px;
 				background-color: #ffffff;
 				overflow-y: scroll;
 			}
@@ -46,7 +46,7 @@ if(isset($_GET["room"])){
 				height: 138px;
 			}
 			.h200 {
-				height: 138px;
+				height: 123px;
 				background-color: #fff;
 			}
 			#msg {
@@ -173,7 +173,7 @@ if(isset($_GET["room"])){
 				
 			}
 			function check(event){
-				repos();
+				// repos();
 				if(event.keyCode === 13){
 					sendmess();
 				}

@@ -1,21 +1,39 @@
+<?php
+session_start();
+$width = "320";
+$height1 = "208";
+$height2 = "222";
+if(strpos($_SERVER["HTTP_USER_AGENT"], "Nintendo DSi") !== false){
+	$width = "240";
+	$height1 = "176";
+	$height2 = "176";
+} else {
+	$width = "320";
+}
+$cbp = (78.125 / 100) * intval($width);
+$cbp1 = strval($cbp);
+?>
+
+
 <html>
 	<head>
 		<script src="polyfill.js"></script>
 		<style>
 			body {
 				margin: 0px;
-				width: 320px;
+				width: <?php echo $width; ?>px;
 				background-color: #fffff;
 				font-size: 12px;
 			}
 			#contenttop {
 				background-color: #f0f0f0;
-				height: 208px;
+				height: <?php echo $height1; ?>px;
+				overflow-y: scroll;
 			}
 			
 			#contentbot {
 				background-color: #f0f0f0;
-				height: 222px;
+				height: <?php echo $height2;?>px;
 				overflow-y: scroll;
 			}
 			.upperheader {
@@ -33,7 +51,7 @@
 
 		</style>
 		<script>
-		window.appData = [{"name":"Sporkbob Schitbag","desc":"Created by Slinkybenis<br />This comic is based off of SpongeBob SquarePants"},{"name":"Then and Now","desc":"Based off of OmegaReploid's Madness Combat au Then and Now, join Hank J Wimbleton and his brothers as we dive into the past...<br/><br/><a href='https://archiveofourown.org/works/34034140'>Then and Now can be read in text form over here</a>"},{"name":"[Esc] DESTINY","desc":"Coming soon!"}];
+		window.appData = [{"name":"Sporkbob Schitbag","desc":"Created by Slinkybenis<br />This comic is based off of SpongeBob SquarePants"},{"name":"Then and Now","desc":"Based off of OmegaReploid's Madness Combat au Then and Now, join Hank J Wimbleton and his brothers as we dive into the past...<br/><br/>Working on Then and Now as a comic has been challenging, not just as a writer, but an artist as well. With writing, the reader can let their mind run wild while reading the book, but with a comic, the artist has to go wild with drawing every single pannel. My main issue with drawing every human is the far away shots and to make sure that they don't look like men's penises. I've drawn so many things and often my mother has looked at it and said \"Hm. looks like a penis.\" The fun part about drawing this, however, is that I get to combine diffrent type of art styles. I hope you enjoy reading Then and Now, as this is one of my favorite fan fics to work on, not just to type up but to now offically draw.<br/><br/><a href='https://archiveofourown.org/works/34034140'>Then and Now can be read in text form over here</a>"},{"name":"[Esc] DESTINY","desc":"Coming soon!"}];
 		function shop(){
 			window.location = "shop.php";
 		}
@@ -96,12 +114,12 @@
 			}
 		</script>
 		<title>Comic Book Reader 1.0 (Beta)</title>
-		<meta name="viewport" content="width=320">
+		<meta name="viewport" content="width=<?php echo $width; ?>">
 		<meta name="description" content="Welcome to 3DSTownSquare Here you can find many apps and games designed for the 3DS!">
 	</head>
 	<body onkeydown="kcheck(event);">
 		<div id="contenttop">
-			<img src="../../../images/header3ds.png" alt="Oops! Our header could not be displayed!" />
+			<img src="../../../images/header3ds.png" width="<?php echo $width; ?>" alt="Oops! Our header could not be displayed!" />
 			<b><u><center id="cname">Comic Book Reader 1.0 (Beta)</center></u></b>
 			<center id="cdesc">Welcome to Comic Book Reader!<br />Click the background of a row to see the comic's information!</center>
 		</div>
