@@ -1,12 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=320">
+<meta id="viewport" name="viewport" content="width=320">
 <style>
 body {
 	background-color: #f0f0f0;
 	margin: 0px;
-	width: 320px;
 }
 p {
   text-align: center;
@@ -14,12 +13,26 @@ p {
   margin-top: 0px;
 }
 </style>
+<script src="polyfill.js"></script>
 </head>
-<body>
+<body style="width: 320px" onload="detect()">
 
 <p id="demo"></p>
 
 <script>
+	function detect(){
+		if(window.navigator.userAgent.includes("Nintendo DSi") == true){ 
+			// console.log("isDSi");
+			document.body.style.width = "240px";
+			document.getElementById("viewport").content = "width=240";
+			// document.getElementById("header").width = "240";
+		} else {
+			// console.log("notDSi");
+			document.body.style.width = "320px";
+			document.getElementById("viewport").content = "width=320";
+			// document.getElementById("header").width = "320";
+		}
+	}
 // Set the date we're counting down to
 var countDownDate = new Date(1654189200000).getTime();
 
