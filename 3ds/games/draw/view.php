@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../../../detect.php");
 ?>
 
 <html>
@@ -7,23 +8,24 @@ session_start();
 		<style>
 			body {
 				margin: 0px;
-				width: 320px;
+				width: <?php echo $width; ?>px;
 				background-color: #fffff;
 				font-size: 12px;
 			}
 			#contenttop {
 				background-color: #f0f0f0;
-				height: 208px;
+				height: <?php echo $height1; ?>px;
 			}
 			
 			#contentbot {
 				background-color: #f0f0f0;
-				height: 222px;
+				height: <?php echo $height2; ?>px;
 				overflow-y: scroll;
+				overflow-x: hidden;
 				word-wrap: break-word;
 			}
 .commentbox {
-	width: 250px;
+	width: <?php echo $cbp1; ?>px;
 	outline: 1px solid black;
 	min-height: 200px;
 }
@@ -38,12 +40,12 @@ session_start();
 }
 		</style>
 		<title>DrawTown - View drawing</title>
-		<meta name="viewport" content="width=320">
+		<meta name="viewport" content="width=<?php echo $width; ?>">
 		<meta name="description" content="DrawTown current works">
 	</head>
 	<body>
 		<div id="contenttop">
-			<img src="../../../images/header3ds.png" alt="Oops! Our header could not be displayed!" />
+			<img src="../../../images/header3ds.png" width="<?php echo $width; ?>" alt="Oops! Our header could not be displayed!" />
 			<center><b><u>DrawTown view drawing</u></b></center>
 		</div>
 		<div id="contentbot">
@@ -55,7 +57,7 @@ session_start();
 			$title = htmlspecialchars($jsonD["title"]);
 			$from = $jsonD["from"];
 			$src = "out/".$_GET["v"].".png";
-			echo "<h2>".$title."</h2><img src='".$src."' alt='".$title."' />";
+			echo "<h2>".$title."</h2><a href='".$src."'><img src='".$src."' alt='".$title."' /></a>";
 		} else {
 			echo "Drawing not found";
 		}

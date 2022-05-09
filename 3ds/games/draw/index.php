@@ -1,15 +1,21 @@
 <?php
 session_start();
+include("../../../detect.php");
+if($isDSi){
+	$cheight = "132";
+} else {
+	$cheight = "240";
+}
 ?>
 <html>
 <style>
 body, html {
-	width: 320px;
+	width: <?php echo $width; ?>px;
 	margin: 0px;
 }
 </style>
 <title>DrawTown - New Drawing</title>
-<meta name="viewport" content="width=320">
+<meta name="viewport" content="width=<?php echo $width; ?>">
     <script type="text/javascript">
 	lw = 5;
     var canvas, ctx, flag = false,
@@ -130,13 +136,13 @@ http.open('POST', url, true);
 //Send the proper header information along with the request
 http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 http.setRequestHeader('Cookie', document.cookie);
-alert(document.cookie);
+// alert(document.cookie);
 http.onreadystatechange = function() {//Call a function when the state changes.
     if(this.readyState == 4 && this.status == 200) {
         alert("Uploaded, " + http.responseText);
-		alert(params);
-		document.getElementById("dbg").innerText = params;
-		alert(t);
+		// alert(params);
+		// document.getElementById("dbg").innerText = params;
+		// alert(t);
     }
 }
 http.send(params.toString());
@@ -222,13 +228,12 @@ http.send(params.toString());
 
         <img id="canvasimg" style="" style="display:none;">
 
-        <canvas id="can" width="320" height="240" style="outline: 1px solid black;"></canvas>
+        <canvas id="can" width="<?php echo $width; ?>" height="<?php echo $cheight; ?>" style="outline: 1px solid black;"></canvas>
 		<br />
         <input type="button" value="save" id="btn" size="30" onclick="save()" style="">
         <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
 		<input type="button" value="exit" onclick="window.location='../'">
 		<input type="button" value="view works" onclick="window.location='works.php'">
 		<input type="button" value="play game" onclick="window.location='rooms.php'">
-		<div id="dbg">DEBUG BOX: Debugging info will show here</div>
     </body>
     </html>

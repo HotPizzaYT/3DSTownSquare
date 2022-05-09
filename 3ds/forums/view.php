@@ -1,18 +1,7 @@
 <?php
 session_start();
 include_once("../chat/process.php");
-$width = "320";
-$height1 = "208";
-$height2 = "222";
-if(strpos($_SERVER["HTTP_USER_AGENT"], "Nintendo DSi") !== false){
-	$width = "240";
-	$height1 = "176";
-	$height2 = "176";
-} else {
-	$width = "320";
-}
-$cbp = (78.125 / 100) * intval($width);
-$cbp1 = strval($cbp);
+include("../../detect.php");
 ?>
 <html>
 	<head>
