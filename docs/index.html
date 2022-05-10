@@ -18,6 +18,7 @@
   return strTime;
 }
 	function load(){
+		window.isDif = true;
 		// alert(window.navigator.userAgent);
 		if(window.navigator.userAgent.includes("Nintendo DSi") == true){ 
 			// console.log("isDSi");
@@ -29,6 +30,12 @@
 			document.body.style.width = "320px";
 			document.getElementById("viewport").content = "width=320";
 			document.getElementById("header").width = "320";
+		}
+		if(window.isDif){
+		ddate = new Date(1652491260000);
+		dtime = ddate.getFullYear() + "/" + (ddate.getMonth() + 1) + "/" + ddate.getDate() +  ", at " + formatAMPM(ddate);
+		document.getElementById("dtend").innerText = dtime;
+		document.getElementById("diff").style.display = "block";
 		}
 		fromTime = formatAMPM(new Date(46800000));
 		toTime = formatAMPM(new Date(104400000));
@@ -78,7 +85,14 @@
 			<br />
 			A little demo has been launched from <span id="from">9:00 AM CST</span> to <span id="to">11:00 PM CST</span> <b>your timezone</b> on either <a href="http://3dstownsquare.loca.lt/">http://3dstownsquare.loca.lt/</a> or <a href="http://3dsts.loca.lt/">http://3dsts.loca.lt/</a>.
 			<br />
-			<a href="javascript:alert('You have to allow access from another device that is on the same network. There is nothing I can do about this, unfortunately.');void(0);">Help, I can't access from my DSi/3DS!</a>
+			<a href="javascript:alert('You have to allow access from another device that is on the same network. There is nothing I can do about this, unfortunately.\n\nEither that or the site is down for maintenance!');void(0);">Help, I can't access from my DSi/3DS!</a>
+			<br />
+			<br />
+			<div id="diff" style="color: #ff0000; display: none;">
+			Our WiFi is experiencing difficulties and you should wait until <span id="dtend">at an unknown time</span> when it goes back up.
+			<br />
+			Thank you for waiting!
+			</div>
 			</center>
 		</div>
 	</body>
