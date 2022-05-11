@@ -61,7 +61,16 @@ So the Auditor's text is based off of MC10, without the weird glitchy lines.
 
 Also, yes, that is hints of bluud
 
-Madness Combat is owned by Krinkles");
+Madness Combat is owned by Krinkles",
+"Hmmm
+
+This boy...
+
+He must have been in that bunker for days...
+
+n-ngh...
+
+Mr. Medic! Our new friend is awake!");
 
 $pt = json_encode($pageText);
 ?>

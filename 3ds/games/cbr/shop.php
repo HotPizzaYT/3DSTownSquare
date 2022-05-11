@@ -115,14 +115,14 @@ include("../../../detect.php");
 		<div id="contentbot">
 			<div class="upperheader">Welcome, Anonymous! You have 0 points. <span onclick="alert('All of the comic books are 100% free!');" style="color: #0080ff">Info</span> <span onclick="window.location = '../'" style="color: #0080ff">Back</span></div>
 			<div class="scrolly">
-				<div class="crow active" id="c0" onclick="selectNew(0)">
-				<span id="c0n" class="mature">Sporkbob Schitbag</span> [FREE] <button onclick="read(0);">Read</button>
+				<div class="crow active" id="c0" onClick="selectNew(0)">
+				<span id="c0n" onClick="selectNew(0)" class="mature">Sporkbob Schitbag</span> [FREE] <button onclick="read(0);">Read</button>
 				</div>
 				<div class="crow" id="c1" onclick="selectNew(1)">
-				<span id="c1n">Then and Now</span> [FREE] <button onclick="read(1);">Read</button>
+				<span id="c1n" onClick="selectNew(1)">Then and Now</span> [FREE] <button onclick="read(1);">Read</button>
 				</div>
 				<div class="crow" id="c2" onclick="selectNew(2)">
-				<span id="c2n">ESC [Destiny]</span> [FREE] <button onclick="read(2);">Read</button>
+				<span id="c2n" onclick="selectNew(1)">ESC [Destiny]</span> [FREE] <button onclick="read(2);">Read</button>
 				</div>
 			</div>
 		</div>

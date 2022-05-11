@@ -35,6 +35,7 @@ if(isset($_GET["room"])){
 				background-color: <?php echo $jsonD["color"] ?>;
 			}
 			#chatscreen {
+				font-size: 10px;
 				height: 160px;
 				background-color: #ffffff;
 				overflow-y: scroll;
@@ -54,6 +55,9 @@ if(isset($_GET["room"])){
 			}
 			.whisper{
 				background-color: #00FFFF;
+			}
+			b {
+				font-weight: heavy;
 			}
 		</style>
 		
@@ -212,7 +216,7 @@ if(isset($_GET["room"])){
 	<!-- I had to set it to normal full long polling because this IN MY HAIR code keeps repeating latest message -->
 	<body onload="getIcons(); setInterval(getfullchat, 1000);">
 		<div id="contenttop" class="conttop">
-		<a href="../">Back</a><br/>
+		<a href="../../">Back</a><br/>
 		<div id="chatscreen" class="scrollable h200">Loading chat...</div>
 		</div>
 		<div id="contentbot">
