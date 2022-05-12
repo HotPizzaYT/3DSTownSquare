@@ -55,7 +55,7 @@ include("../../detect.php");
 		?>
 			<img src="../../images/header3ds.png" width="<?php echo $width; ?>" alt="Oops! Our header could not be displayed!" />
 			<center><b><u><?php if($error == ""){ echo $jsonD["name"]; } else { echo "Error!"; } ?></u></b></center>
-			<center><?php if($error == ""){ $jsonD["description"]; } else { echo "<font color='red'>".$error."</font>"; } ?></center>
+			<center><?php if($error == ""){ echo $jsonD["description"]; } else { echo "<font color='red'>".$error."</font>"; } ?></center>
 		</div>
 		<div id="contentbot">
 		<center>

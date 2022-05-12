@@ -48,6 +48,7 @@ include_once("functions.php");
 				}else if(startsWith($_POST["msg"], "/eval ")){
 					echo "::eval;".str_replace("/eval ", "",$_POST["msg"]);
 				}else if(startsWith($_POST["msg"], "/whisper ")){
+				
 					$x = explode(" ", $_POST["msg"]);
 					$who = $x[1];
 					$msg = strSplit($_POST["msg"], 2, " ");
@@ -60,6 +61,18 @@ include_once("functions.php");
 					array_unshift($jsonD["msg"], $finalmsg);
 					$jsonString = json_encode($jsonD);
 					file_put_contents("data/".$room.".json",$jsonString);
+				}else if(startsWith($_POST["msg"], "/claim")){
+					if(file_exists("data/claim.global") && file_get_contents("data/claim.global") == "0"){
+						$finalmsg = array("cont"=>"<font color='orange'><u>{$_SESSION['ts_user']} has claimed the hourly points!</u></font>","time"=>time(),"type"=>"rawbr","color"=>"red","visibility"=>"all","from"=>"system");
+						array_unshift($jsonD["msg"], $finalmsg);
+						$jsonString = json_encode($jsonD);
+						file_put_contents("data/".$room.".json",$jsonString);
+						echo "::message;FYI, this command does not actually add any points, sorry!";
+					}else if(!(file_exists("data/claim.global"))){
+						echo "::eval;alert('chat.errors.noglobal\\n\\nError details: Could not find the specified global file \"data\\/claim.global\", contact @HxOr1337#0907 on Discord.";
+					}else if(file_exists("data/claim.global")){
+						echo "::eval;alert('You failed to claim the points. No points have been rewarded.');";
+					}
 				}else{
 					echo "::message;Command \"" . explode(" ", $_POST["msg"])[0] . "\" not found.";
 				

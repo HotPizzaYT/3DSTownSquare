@@ -63,9 +63,18 @@ include("../../detect.php");
 				$jsonD = json_decode($jsonF, true);
 				$name = "<a href='topic.php?t=".str_replace(".json","",$file)."'>".$jsonD["name"]."</a>";
 				$desc = $jsonD["description"];
+				
 				$latest = count($jsonD["posts"]) - 1;
-				$latestPost = "Latest post by: ".$jsonD["posts"][$latest]["from"].", \"".htmlspecialchars($jsonD["posts"][$latest]["title"])."\"";
-				echo "<div class='crow' alt='".$desc."'>" . $name . "<br/><font color='grey'>".$latestPost."</font></div>";
+				
+				$lpc = "grey";
+				if(count($jsonD["posts"]) == 0){
+					$lpc = "red";
+					$latestPost = "This topic is empty! Be the first one to post something!";
+				} else {
+					$lpc = "grey";
+					$latestPost = "Latest post by: ".$jsonD["posts"][$latest]["from"].", \"".htmlspecialchars($jsonD["posts"][$latest]["title"])."\"";
+				}
+				echo "<div class='crow' alt='".$desc."'>" . $name . "<br/><font color='{$lpc}'>".$latestPost."</font></div>";
 			}
 		}
 		?>

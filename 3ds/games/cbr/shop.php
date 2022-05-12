@@ -40,6 +40,8 @@ include("../../../detect.php");
 
 		</style>
 		<script>
+					window.selected = 0;
+			window.previousSel = 0;
 		window.appData = [{"name":"Sporkbob Schitbag","desc":"Created by Slinkybenis<br />This comic is based off of SpongeBob SquarePants"},{"name":"Then and Now","desc":"Based off of OmegaReploid's Madness Combat au Then and Now, join Hank J Wimbleton and his brothers as we dive into the past...<br/><br/>Working on Then and Now as a comic has been challenging, not just as a writer, but an artist as well. With writing, the reader can let their mind run wild while reading the book, but with a comic, the artist has to go wild with drawing every single pannel. My main issue with drawing every human is the far away shots and to make sure that they don't look like men's penises. I've drawn so many things and often my mother has looked at it and said \"Hm. looks like a penis.\" The fun part about drawing this, however, is that I get to combine diffrent type of art styles. I hope you enjoy reading Then and Now, as this is one of my favorite fan fics to work on, not just to type up but to now offically draw.<br/><br/><a href='https://archiveofourown.org/works/34034140'>Then and Now can be read in text form over here</a>"},{"name":"[Esc] DESTINY","desc":"Coming soon!"}];
 		function shop(){
 			window.location = "shop.php";
@@ -49,8 +51,7 @@ include("../../../detect.php");
 		}
 		window.matureTitles = ["Sporkbob Schitbag"];
 		// Selection code
-			window.selected = 0;
-			window.previousSel = 0;
+
 			function kcheck(event){
 				// Basically disabled
 				if(event.keyCode == 38){
@@ -76,8 +77,8 @@ include("../../../detect.php");
 			function changeSelection(){
 				prev = document.getElementById("c" + window.previousSel.toString());
 				now = document.getElementById("c" + window.selected.toString());
-				prev.classList.remove("active");
-				now.classList.add("active");
+				prev.className = prev.className.replace(" active", "");
+				now.className += " active";
 				document.getElementById("cname").innerText = window.appData[window.selected].name;
 				document.getElementById("cdesc").innerHTML = window.appData[window.selected].desc;
 				

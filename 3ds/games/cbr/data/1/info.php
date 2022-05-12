@@ -6,7 +6,7 @@ $cbprefix = "page";
 $startsWithZero = true;
 
 
-$cbPages = 6;
+$cbPages = 9;
 
 if($startsWithZero){
 	$cbPages += 1;
@@ -70,7 +70,23 @@ He must have been in that bunker for days...
 
 n-ngh...
 
-Mr. Medic! Our new friend is awake!");
+Mr. Medic! Our new friend is awake!",
+"*Background chatter*
+
+Son, are you okay?
+
+*Sudden unintelligible babble*
+
+Hey, you're safe now.
+
+My name is Matt Medic. and I'm here to help you. what's your name?",
+"Toby...
+
+Mr. Medic...
+
+Are my parents dead?
+
+I'm... afraid so");
 
 $pt = json_encode($pageText);
 ?>

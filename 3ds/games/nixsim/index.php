@@ -11,6 +11,7 @@ if($isDSi){
 <html>
 	<head>
 		<meta name="viewport" content="width=<?php echo $width; ?>">
+		
 		<script>
 			function color(x){
 				x = x.replace(/\\\[31m/g, "<font color='red'>");

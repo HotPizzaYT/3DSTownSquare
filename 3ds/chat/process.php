@@ -65,7 +65,8 @@
 		":pre:" => "<img alt='pre' src='i/icon_prerelease.png' />",
 		":0)" => "<img alt='clown' src='i/clown.png' />",
 		":O)" => "<img alt='clown' src='i/clown.png' />",
-		":o)" => "<img alt='clown' src='i/clown.png' />"
+		":o)" => "<img alt='clown' src='i/clown.png' />",
+		":ht:" => "<img alt='Honey Troll' src='i/honey_troll.png' />"
 		
 		);
 		$txt = str_replace(array_keys($plazaEmotes), array_values($plazaEmotes), $txt);

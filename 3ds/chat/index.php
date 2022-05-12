@@ -27,15 +27,15 @@ if(isset($_GET["room"])){
 			}
 			#contenttop {
 				background-color: #f0f0f0;
-				height: 208px;
+				height: 218px;
 			}
 			.conttop {
 				background-color: #f0f0f0;
-				height: 208px;
+				height: 218px;
 			}
 			#contentbot {
 				background-color: #f0f0f0;
-				height: 222px;
+				height: 212px;
 				background-color: <?php echo $jsonD["color"] ?>;
 			}
 			#chatscreen {
@@ -47,10 +47,10 @@ if(isset($_GET["room"])){
 				overflow-y: scroll;
 			}
 			.test {
-				height: 100px;
+				height: 176px;
 			}
 			.h200 {
-				height: 140px;
+				height: 100px;
 				background-color: #fff;
 			}
 			#msg {
@@ -189,10 +189,10 @@ if(isset($_GET["room"])){
 	<body onload="getIcons(); getfullchat(); setInterval(getfullchat, 1000);">
 		<div id="contenttop" class="conttop">
 		<a href="../">Back</a><br/>
-		<div id="nav" class="scrollable h200"></div>
+		<div id="chatscreen" class="scrollable test"></div>
 		</div>
-		<div id="contentbot">
-		<div id="chatscreen" class="scrollable test">Loading chat...</div>
+		<div id="contentbot" class="contbot">
+		<div id="nav" class="scrollable test">Loading chat...</div>
 <?php if(isset($_SESSION["ts_user"])){?><input id="msg" onkeydown="check(event)"></input><button onclick="sendmess()">Send</button><?php } else { ?> You have to be logged in! <a href="../acc/index.php">Login here</a><?php }?>
 		</div>
 <?php } else {
