@@ -17,8 +17,9 @@
   var strTime = hours + ':' + minutes + ' ' + ampm;
   return strTime;
 }
+window.isDif = false;
 	function load(){
-		window.isDif = true;
+		
 		// alert(window.navigator.userAgent);
 		if(window.navigator.userAgent.includes("Nintendo DSi") == true){ 
 			// console.log("isDSi");
@@ -32,10 +33,16 @@
 			document.getElementById("header").width = "320";
 		}
 		if(window.isDif){
+		
+		document.getElementById("nodiff").style.display = "none";
 		ddate = new Date(1652491260000);
 		dtime = ddate.getFullYear() + "/" + (ddate.getMonth() + 1) + "/" + ddate.getDate() +  ", at " + formatAMPM(ddate);
 		document.getElementById("dtend").innerText = dtime;
 		document.getElementById("diff").style.display = "block";
+		} else {
+		
+		document.getElementById("nodiff").style.display = "block";
+		document.getElementById("diff").style.display = "none";
 		}
 		fromTime = formatAMPM(new Date(46800000));
 		toTime = formatAMPM(new Date(104400000));
@@ -92,6 +99,9 @@
 			Our WiFi is experiencing difficulties and you should wait until <span id="dtend">at an unknown time</span> when it goes back up.
 			<br />
 			Thank you for waiting!
+			</div>
+			<div id="nodiff" style="color: #00ff00;">
+			No difficulties at the moment, everything is fine.
 			</div>
 			</center>
 		</div>
