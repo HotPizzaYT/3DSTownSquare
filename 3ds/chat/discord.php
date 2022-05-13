@@ -4,7 +4,7 @@
 if(isset($_POST["msg"]) && isset($_POST["usr"]) && isset($_POST["room"])){
 	if(!(file_exists("dkey.global")) && !(file_exists("dhook.global"))){
 		echo "tunnel.setupfailure";
-	} else if($_POST["key"] == file_get_contents("dkey.global") && file_exists("dhook.global")){
+	} else if(isset($_POST["key"]) && $_POST["key"] == file_get_contents("dkey.global") && file_exists("dhook.global")){
 		if(file_exists("data/".$_POST["room"].".json")){
 			// Room exists
 				// Set needed variables

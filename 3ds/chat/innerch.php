@@ -15,7 +15,7 @@ if(isset($_GET["room"]) && file_exists("data/".$_GET["room"].".json")){
 			if($toYou){
 				echo "<span id='".$message["time"]."'><font color='".$color."'><b><u>".$message["from"].":</u></b></font> ".process($message["cont"])." <span class='whisper'>To you</span></span><br /><!--endmsg-->";
 			}
-			if(isset($_SESSION["ts_user"]) && $message["from"] == $_SESSION["ts_user"] && $message["visibility"] != $_SESSION["ts_user"]){
+			if(isset($_SESSION["ts_user"]) && $message["from"] == $_SESSION["ts_user"] && $message["visibility"] != $_SESSION["ts_user"] && $message["visibility"] != "dall"){
 				echo "<span id='".$message["time"]."'><font color='".$color."'><b><u>".$message["from"].":</u></b></font> ".process($message["cont"])." <span class='whisper'>To ".$message["visibility"]."</span></span><br /><!--endmsg-->";
 			}
 		}
