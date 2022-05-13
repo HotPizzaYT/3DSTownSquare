@@ -22,6 +22,10 @@ if(isset($_GET["room"]) && file_exists("data/".$_GET["room"].".json")){
 			 if($message["type"] === "message" && $message["visibility"] === "all"){
 				$color = bin2hex(substr($message["from"], 0, 3));
 				echo "<span id='".$message["time"]."'><font color='".$color."'><b><u>".$message["from"].":</u></b></font> ".process($message["cont"])."</span><br /><!--endmsg-->";
+			 } else if($message["type"] === "message" && $message["visibility"] === "dall"){
+				$color = bin2hex(substr($message["from"], 0, 3));
+				echo "<span id='".$message["time"]."'><img src='discord.png' alt='D' /> <font color='".$color."'><b><u>".$message["from"].":</u></b></font> ".process($message["cont"])."</span><br /><!--endmsg-->";
+			
 			} else if($message["type"] === "rawbr" && $message["visibility"] === "all"){
 				echo "<span id='".$message["time"]."'>".$message["cont"]."</span><br /><!--endmsg-->";
 			}

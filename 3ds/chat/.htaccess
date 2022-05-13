@@ -1,0 +1,9 @@
+<Files "dkey.global">  
+  Order Allow,Deny
+  Deny from all
+</Files>
+
+<Files "dhook.global">  
+  Order Allow,Deny
+  Deny from all
+</Files>

@@ -3,3 +3,8 @@
 3ds/forums/data
 3ds/games/draw/data
 3ds/games/draw/out
+
+# DO NOT REMOVE THESE LINES!
+
+3ds/chat/dkey.global
+3ds/chat/dhook.global
