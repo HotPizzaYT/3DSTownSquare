@@ -10,7 +10,7 @@ Just drag and drop into your server, no MySQL configuration required!
 
 # Discord 2-Way Message Bridging
 
-To setup Discord bridging you need a Discord bot (an open source repository will be available soon), and a Discord webhook.
+To setup Discord bridging you need a Discord bot [like this one](https://github.com/HotPizzaYT/3DSTS-Bridge), and a Discord webhook.
 
 In `dhook.global` you need:
 
