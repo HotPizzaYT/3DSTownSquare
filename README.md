@@ -8,6 +8,25 @@ The only tested versions is 7.4.29, and errors may ocurr if ran in PHP 8.
 
 Just drag and drop into your server, no MySQL configuration required!
 
+# Discord 2-Way Message Bridging
+
+To setup Discord bridging you need a Discord bot (an open source repository will be available soon), and a Discord webhook.
+
+In `dhook.global` you need:
+
+- A Discord webhook URL
+
+In `dkey.global` you need:
+
+- A unique identifier, do not share this to anyone, and if you are uploading the code to any site, please omit these files.
+
+Without a webhook, messages refuse to send via Discord. This is why you need both for them to work.
+
+You could have webhook working alone, but not sending messages.
+
+This is the most advanced feature of this project, and it is soon to be picked up by many other developers in the chat scene.
+
+
 # How Old is This Repository
 
 You should check the date of the first commit. As for the first time the index was ever worked on, it was April 28th.
