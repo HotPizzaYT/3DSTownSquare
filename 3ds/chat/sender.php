@@ -101,6 +101,22 @@ function hookmsg($qWho, $qMsg){
 					}
 				}else if(startsWith($_POST["msg"], "/shake")){
 					echo '::eval;window.shakeIt = setInterval(function(){document.body.style = "position:absolute;left:"+(Math.floor(Math.random() * (Math.floor(10) - Math.ceil(0) + 1)) + Math.ceil(0))+"px;top:"+(Math.floor(Math.random() * (Math.floor(10) - Math.ceil(0) + 1)) + Math.ceil(0))+"px;"}, 100); setTimeout(function(){clearInterval(window.shakeIt); document.body.style = "";}, 3000);';
+				}else if(startsWith($_POST["msg"], "/kp ")){
+					if(file_exists("../acc/data/".str_replace("/kp ", "",$_POST["msg"]).".json")){
+						// user exists
+						$script = '<b onload=""><u><img onload="eggyou();" src="i/icon_burger.gif" /> Somebody threw a patty!!</u></b>';
+						echo "::message;".$script;
+						if(count($jsonD["msg"])+1 >= strval($jsonD["max"])){
+							array_pop($jsonD["msg"]);
+						}
+						hookmsg("System", "Somebody threw a patty!");
+						$finalmsg = array("cont"=>$script,"time"=>time(),"type"=>"rawbr","color"=>"grey","visibility"=>"all","from"=>$_SESSION["ts_user"]);
+						array_unshift($jsonD["msg"], $finalmsg);
+						$jsonString = json_encode($jsonD);
+						file_put_contents("data/".$room.".json",$jsonString);	
+					}
+				
+				
 				}else if(startsWith($_POST["msg"], "/query ")){
 					if(str_replace("/query ", "",$_POST["msg"]) !== ""){
 						if(file_exists("../acc/data/".str_replace("/query ", "",$_POST["msg"]).".json")){

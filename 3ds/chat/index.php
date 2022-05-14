@@ -62,6 +62,8 @@ if(isset($_GET["room"])){
 		</style>
 		
 		<!-- Insert polyfill -->
+		<!-- The burger -->
+		<script type="text/javascript" src="burger.js"></script>
 		<script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=XMLHttpRequest%2CMediaQueryList.prototype.addEventListener"></script>
 		<script type="text/javascript">
 			function lc(xhr){

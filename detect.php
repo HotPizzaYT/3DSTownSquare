@@ -1,7 +1,7 @@
 <?php
 $isDSi = false;
 $width = "320";
-$height1 = "218";
+$height1 = "215";
 $height2 = "212";
 if(strpos($_SERVER["HTTP_USER_AGENT"], "Nintendo DSi") !== false){
 	$width = "240";

@@ -14,6 +14,7 @@ if(isset($_GET["room"])){
 
 <html>
 	<head>
+		<script src="burger.js"></script>
 		<style>
 			body {
 				margin: 0px;
@@ -39,6 +40,7 @@ if(isset($_GET["room"])){
 				height: 160px;
 				background-color: #ffffff;
 				overflow-y: scroll;
+				overflow-x: hidden;
 			}
 			.scrollable {
 				overflow-y: scroll;
