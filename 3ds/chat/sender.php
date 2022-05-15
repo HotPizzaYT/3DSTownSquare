@@ -104,8 +104,8 @@ function hookmsg($qWho, $qMsg){
 				}else if(startsWith($_POST["msg"], "/kp ")){
 					if(file_exists("../acc/data/".str_replace("/kp ", "",$_POST["msg"]).".json")){
 						// user exists
-						$script = '<b onload=""><u><img onload="eggyou();" src="i/icon_burger.gif" /> Somebody threw a patty!!</u></b>';
-						echo "::message;".$script;
+						$script = '<b onload=""><u><img onload="throwBurger('.time().', \''.str_replace("/kp ", "",$_POST["msg"]).'\');" src="i/icon_burger.gif" /> Somebody threw a patty!!</u></b>';
+						
 						if(count($jsonD["msg"])+1 >= strval($jsonD["max"])){
 							array_pop($jsonD["msg"]);
 						}

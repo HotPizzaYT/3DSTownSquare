@@ -20,26 +20,30 @@ if(isset($_GET["room"])){
 	<head>
 		<style>
 			body {
+				position: relative;
 				margin: 0px;
 				width: 320px;
 				background-color: #ffffff;
 				font-size: 12px;
 			}
 			#contenttop {
+				position: relative
 				background-color: #f0f0f0;
-				height: 218px;
+				height: 215px;
+				
 			}
 			.conttop {
 				background-color: #f0f0f0;
-				height: 218px;
 			}
 			#contentbot {
 				background-color: #f0f0f0;
 				height: 212px;
+				
 				background-color: <?php echo $jsonD["color"] ?>;
 			}
 			#chatscreen {
 				height: 200px;
+				
 				background-color: #ffffff;
 				overflow-y: scroll;
 			}

@@ -17,12 +17,14 @@ if(isset($_GET["room"])){
 		<script src="burger.js"></script>
 		<style>
 			body {
+				position: relative;
 				margin: 0px;
 				width: 240px;
 				background-color: #ffffff;
 				font-size: 12px;
 			}
 			#contenttop {
+				position: relative;
 				background-color: <?php echo $jsonD["color"] ?>;
 				height: 176px;
 			}
