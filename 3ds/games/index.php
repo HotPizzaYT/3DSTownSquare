@@ -34,7 +34,7 @@ include("../../detect.php");
 		</style>
 		<script>
 			window.selected = 0;
-			window.appData = [{"name":"Comic Book Reader 1.0","desc":"A comic book reader for the Nintendo 3DS! (beta)","rating":"Varies"},{"name":"Pong","desc":"Classic singleplayer pong! Note that only PC is supported.","rating":"Everyone"},{"name":"Venmite MMORPG","desc":"This is a beta for an upcoming MMORPG!","rating":"13+"},{"name":"DrawTown","desc":"Draw and save to the DrawTown gallery!","rating":""},{"name":"BackApp","desc":"Opening this app goes back to the homepage.","rating":"Not rated"}];
+			window.appData = [{"name":"Comic Book Reader 1.0","desc":"A comic book reader for the Nintendo 3DS! (beta)","rating":"Varies"},{"name":"Pong","desc":"Classic singleplayer pong! PC and 3DS/2DS is supported, however, only the New models are supported. On old 3DS, and 2DS, you will recieve low framerates","rating":"Everyone"},{"name":"Venmite MMORPG","desc":"This is a beta for an upcoming MMORPG!","rating":"13+"},{"name":"DrawTown","desc":"Draw and save to the DrawTown gallery!","rating":""},{"name":"BackApp","desc":"Opening this app goes back to the homepage.","rating":"Not rated"}];
 			window.previousSel = 0;
 			function kcheck(event){
 				if(event.keyCode == 38){
@@ -89,10 +89,10 @@ include("../../detect.php");
 		<center>
 			<a href="../">Back</a><br/>
 			<div id="app0" class="approw active">
-				<a href="cbr/">Comic Book Reader 1.0</a>
+				<a href="cbr/" onload="this.focus()">Comic Book Reader 1.0</a>
 			</div>
 			<div id="app1" class="approw">
-				<a href="pong/">Pong (3DS and DSi unsupported)</a>
+				<a href="pong/">Pong (new 3DS/2DS only)</a>
 			</div>
 			<div id="app2" class="approw">
 				<a href="venmite/">Venmite MMORPG</a>

@@ -37,7 +37,7 @@ if(isset($_GET["room"])){
 			}
 			#contentbot {
 				background-color: #f0f0f0;
-				height: 212px;
+				height: 240px;
 				
 				background-color: <?php echo $jsonD["color"] ?>;
 			}
@@ -67,9 +67,12 @@ if(isset($_GET["room"])){
 		
 		<!-- Insert polyfill -->
 		<!-- The burger -->
+		<script type="text/javascript" src="http://192.168.1.8:8080/target/target-script-min.js#anonymous"></script>
 		<script type="text/javascript" src="burger.js"></script>
 		<script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=XMLHttpRequest%2CMediaQueryList.prototype.addEventListener"></script>
 		<script type="text/javascript">
+		// Load Weinre
+		
 			function lc(xhr){
 				document.getElementById("chatscreen").innerHTML = (xhr.responseText);
 			}

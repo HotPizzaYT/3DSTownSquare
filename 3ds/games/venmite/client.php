@@ -1,5 +1,21 @@
+<?php
+include("../../../detect.php");
+if($isDSi){
+	header("Location: unsupported.php");
+}
+?>
 <html>
+	
 	<head>
+		<script>
+		window.pos = {"x":0,"y":0};
+		</script>
+		<script src="script/main.js" type="text/javascript"></script>
+		<script>
+			window.system = "<?php echo detect_system(); ?>";
+			
+		</script>
+		
 		<style>
 			body {
 				margin: 0px;
@@ -9,12 +25,12 @@
 			}
 			#contenttop {
 				background-color: #f0f0f0;
-				height: 208px;
+				height: 150px;
 			}
 			
 			#contentbot {
 				background-color: #f0f0f0;
-				height: 222px;
+				height: 240px;
 			}
 			th, td {
 				width: 16px;
@@ -26,12 +42,15 @@
 		<title>Venmite Game</title>
 		<meta name="viewport" content="width=320">
 		<meta name="description" content="An MMORPG for the Nintendo 3DS!">
+
 	</head>
-	<body>
-		<div id="contenttop">
-			<div id="status" style="background-color: #e0e0e0">0:00 - Sunday [<a href="javascript:alert('not implemented'); void(0)">INVENTORY</a>]</div>
-		</div>
+	<body onkeyup="kup(event)" onkeydown="kdown(event)">
 		<div id="contentbot">
+			<div id="status" style="background-color: #e0e0e0">0:00 - Sunday [<a href="javascript:alert('not implemented'); void(0)">INVENTORY</a>]</div>
+			<script></script>
+			<div id="objtest_1" style="position:absolute;top:0px;left:0px;width:15px;height:15px;zindex:200;"><img src="test/r.png" id="test"></img></div>
+		</div>
+		<div id="inventory" style="display: none;">
 		<div id="inventory">
 			<table>
 <thead>

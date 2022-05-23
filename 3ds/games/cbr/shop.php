@@ -17,13 +17,13 @@ include("../../../detect.php");
 			#contenttop {
 				background-color: #f0f0f0;
 				height: <?php echo $height1; ?>px;
-				overflow-y: scroll;
+				<?php if($isDSi){ echo "overflow-y: scroll;"; } else { echo "overflow-y: hidden;"; }?>
 			}
 			
 			#contentbot {
 				background-color: #f0f0f0;
 				height: <?php echo $height2;?>px;
-				overflow-y: scroll;
+				<?php if($isDSi){ echo "overflow-y: scroll;"; } else { echo "overflow-y: hidden;"; }?>
 			}
 			.upperheader {
 				background-color: #ff8000;

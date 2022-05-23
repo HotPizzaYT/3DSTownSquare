@@ -77,6 +77,8 @@ I do whatever I can to help make this site better by providing bugfixes on deman
 		<a href="chat/"><img src="../images/ch.png"></img></a>
 		<a href="javascript:if(confirm('Forums is in beta! Are you sure you want to go to the forums?\n\nPlease send bugs and errors to HxOr1337#0907 on Discord!')){window.location='forums/';}void(0)"><img src="../images/forums.png"></img></a>
 		</center>
+		<br />
+		<button onclick='alert(document.body.scrollTop)'>TestScroll</button>
 		<span style="color:grey;">Beta 1.3.0_0 (05132022) <img src="copyleft.png" onclick="alert('Fun fact: Copyleft is NOT the opposite of copyright!');" alt="" /> Copyleft <?php echo date("Y"); ?> - Licensed under the <a href='https://www.gnu.org/licenses/gpl-3.0.en.html'>GNU General Public License 3.0 (GPLv3)</a>, Read more <a href="license.html">here</a></span>
 		</div>
 		

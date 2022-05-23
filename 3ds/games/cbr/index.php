@@ -1,17 +1,6 @@
 <?php
 session_start();
-$width = "320";
-$height1 = "208";
-$height2 = "222";
-if(strpos($_SERVER["HTTP_USER_AGENT"], "Nintendo DSi") !== false){
-	$width = "240";
-	$height1 = "176";
-	$height2 = "176";
-} else {
-	$width = "320";
-}
-$cbp = (78.125 / 100) * intval($width);
-$cbp1 = strval($cbp);
+include("../../../detect.php");
 ?>
 
 
@@ -56,7 +45,7 @@ $cbp1 = strval($cbp);
 		<div id="contentbot">
 			<center>
 				<button onclick="shop()">Shop</button><br/>
-				<button onclick="myComics()">My Comics</button><br/>
+				<button onclick="myComics()" disabled>My Comics (disabled due to all comics being free)</button><br/>
 				<button onclick="window.location = '../'">Back to apps</button>
 			</center>
 		</div>

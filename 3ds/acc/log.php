@@ -1,4 +1,5 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
 if(isset($_POST["ts_user"]) && isset($_POST["password"])){
 	if(file_exists("data/" . $_POST["ts_user"] . ".json")){
 		// echo "User exists<br />";
@@ -11,14 +12,18 @@ if(isset($_POST["ts_user"]) && isset($_POST["password"])){
 			$_SESSION["ts_points"] = $jsonD["points"];
 			$_SESSION["email"] = $jsonD["email"];
 			header("Location: acc.php");
+			echo "<script>window.location = 'acc.php';</script>";
 		} else {
 			header("Location: index.php?err=2");
+			echo "<script>window.location = 'index.php?err=2';</script>";
 		}
 		
 	} else {
 		header("Location: index.php?err=3");
+		
+		echo "<script>window.location = 'acc.php?err=3';</script>";
 	}
 	
 } else {
-	header("Location: index.php?err=1");
+}
 }

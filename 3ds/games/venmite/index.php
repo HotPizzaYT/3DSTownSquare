@@ -1,3 +1,11 @@
+<?php
+include("../../../detect.php");
+if(strpos($_SERVER["HTTP_USER_AGENT"], "Nintendo DSi") !== false){
+	header("Location: unsupported.php");
+} else {
+	$isSup = true;
+}
+?>
 <html>
 	<head>
 		<style>
@@ -5,16 +13,15 @@
 				margin: 0px;
 				width: 320px;
 				background-color: #fffff;
-				font-size: 12px;
 			}
 			#contenttop {
 				background-color: #f0f0f0;
-				height: 208px;
+				height: 215px;
 			}
 			
 			#contentbot {
 				background-color: #000;
-				height: 222px;
+				height: 240px;
 			}
 			th, td {
 				width: 16px;

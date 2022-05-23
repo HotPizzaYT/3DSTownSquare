@@ -1,7 +1,6 @@
 <?php
 session_start();
 include_once("process.php");
-
 if(isset($_GET["room"]) && file_exists("data/".$_GET["room"].".json")){
 	$jsonF = file_get_contents("data/".$_GET["room"].".json");
 	$jsonD = json_decode($jsonF, true);
