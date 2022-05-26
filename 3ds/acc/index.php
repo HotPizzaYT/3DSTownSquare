@@ -17,7 +17,7 @@ body, html {
 	margin: 0px;
 }
 </style>
-<script src="http://192.168.1.8:8080/target/target-script-min.js#anonymous"></script>
+<!-- Remove WeInRe script -->
 <title>3DSTownSquare Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>

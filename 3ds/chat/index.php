@@ -67,7 +67,7 @@ if(isset($_GET["room"])){
 		
 		<!-- Insert polyfill -->
 		<!-- The burger -->
-		<script type="text/javascript" src="http://192.168.1.8:8080/target/target-script-min.js#anonymous"></script>
+		<!-- Remove Weinre script -->
 		<script type="text/javascript" src="burger.js"></script>
 		<script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=XMLHttpRequest%2CMediaQueryList.prototype.addEventListener"></script>
 		<script type="text/javascript">

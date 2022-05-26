@@ -70,7 +70,7 @@ I do whatever I can to help make this site better by providing bugfixes on deman
 		$jsonF = file_get_contents("acc/data/" . $_SESSION["ts_user"] . ".json");
 		$jsonD = json_decode($jsonF, true);
 		$_SESSION["ts_points"] = $jsonD["points"];
-		?>Welcome, <?php echo "<a href='acc/acc.php'>" . $_SESSION["ts_user"] . "</a>"; ?>, you have <?php echo $_SESSION["ts_points"] . " points!"; } else { ?><a href="acc/log.php">Login</a><?php } ?></center>
+		?>Welcome, <?php echo "<a href='acc/acc.php'>" . $_SESSION["ts_user"] . "</a>"; ?>, you have <?php echo $_SESSION["ts_points"] . " points!"; } else { ?><a href="acc/index.php">Login</a><?php } ?></center>
 		
 		<center>
 		<a href="games/"><img src="../images/games.png"></img></a>
