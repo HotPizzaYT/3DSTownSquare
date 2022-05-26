@@ -76,6 +76,7 @@ I do whatever I can to help make this site better by providing bugfixes on deman
 		<a href="games/"><img src="../images/games.png"></img></a>
 		<a href="chat/"><img src="../images/ch.png"></img></a>
 		<a href="javascript:if(confirm('Forums is in beta! Are you sure you want to go to the forums?\n\nPlease send bugs and errors to HxOr1337#0907 on Discord!')){window.location='forums/';}void(0)"><img src="../images/forums.png"></img></a>
+		<a href="http://3ds.hacks.guide/"><img alt="CFW Guide" title="3DSTownSquare is not responsible for damage done to your Nintendo systems." src="../images/cfw.png"></img></a>
 		</center>
 		<br />
 		<button onclick='alert(document.body.scrollTop)'>TestScroll</button>
