@@ -1,4 +1,10 @@
 <?php
+
+if(strpos($_SERVER["HTTP_USER_AGENT"], "MOT-RAZR") !== false){
+	$razr = true;
+} else {
+	$razr = false;
+}
 session_start();
 if(isset($_GET["room"])){
 	if(file_exists("data/".$_GET["room"].".json")){
@@ -220,12 +226,12 @@ if(isset($_GET["room"])){
 	<!-- I had to set it to normal full long polling because this IN MY HAIR code keeps repeating latest message -->
 	<body onload="getIcons(); setInterval(getfullchat, 1000);">
 		<div id="contenttop" class="conttop">
-		<a href="../../">Back</a><br/>
+		<?php if($razr){?><input id="msg" style="width: 120px" onkeydown="check(event)" maxlength="2000"></input><button onclick="sendmess()">Send!</send><br /><?php } ?><a href="../../">Back</a><br/>
 		<div id="chatscreen" class="scrollable h200">Loading chat...</div>
 		</div>
 		<div id="contentbot">
 		<div id="nav" class="scrollable test">Loading nav</div>
-<?php if(isset($_SESSION["ts_user"])){?><input onclick="" onfocus="" id="msg" style="width: 120px" onkeydown="check(event)"></input><button onclick="sendmess()">Send</button>
+<?php if(isset($_SESSION["ts_user"]) && $razr == false){?><input onclick="" onfocus="" id="msg" style="width: 120px" onkeydown="check(event)"></input><button onclick="sendmess()">Send</button>
 - <img src="u.png" onmousedown="scrolling='yes'; scrollup()" onmouseup="scrolling='no';" onmouseout="scrolling='no'" /> <img src="d.png" onmousedown="scrolling='yes'; scrolldown()" onmouseup="scrolling='no';" onmouseout="scrolling='no'" />
 <?php } else { ?> You have to be logged in! <a href="../acc/index.php">Login here</a><?php }?>
 		</div>

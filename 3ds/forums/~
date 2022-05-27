@@ -5,22 +5,12 @@ body, html {
 </style>
 <meta name="viewport" content="width=320">
 <?php
-error_reporting(E_ALL);
-
-if(isset($_COOKIE["cd"]) && intval($_COOKIE["cd"]) >= time()){
-	// unset($_COOKIE["cd"]);
-	setCookie("cd", "", -1);
-	$iscd = true;
-} else if(isset($_COOKIE["cd"])){
-	$iscd = false;
-} else {
-	$iscd = true;
-}
 	session_start();
-	if(isset($_SESSION["ts_user"]) && $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["topic"]) && isset($_POST["title"]) && isset($_POST["cont"]) && isset($_COOKIE["cd"])){
+	if(isset($_SESSION["ts_user"]) && $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["topic"]) && isset($_POST["title"]) && isset($_POST["cont"])){
 		if($_POST["title"] != "" && $_POST["cont"] != "" && strlen($_POST["title"]) <= 32 && strlen($_POST["cont"]) <= 5000){
-			if(file_exists("data/topic/".$_POST["topic"].".json") && json_decode(file_get_contents("../acc/data/".$_SESSION["ts_user"].".json"),true)["banned"] <= 0 && $iscd){
-				setCookie("cd", time()+30000, time()+30000);
+			if(file_exists("data/topic/".$_POST["topic"].".json") && json_decode(file_get_contents("../acc/data/".$_SESSION["ts_user"].".json"),true)["banned"] <= 0 && (!isset($_COOKIE["as"])){
+				// CoolDown cookie, disguised as something else :trl:
+				setCookie("as", "aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMzk4MjA4MjYvaG93LWNhbi1pLW1ha2UtYS1jb29sZG93bi1pbi1waHA=",time()+30000);
 				$jsonF = file_get_contents("data/topic/".$_POST["topic"].".json");
 				$jsonD = json_decode($jsonF, true);
 				$posts = $jsonD["posts"];
@@ -32,8 +22,6 @@ if(isset($_COOKIE["cd"]) && intval($_COOKIE["cd"]) >= time()){
 				echo "Your post has been submitted<a href='view.php?topic=0&post=".$id."'>here</a>.";
 				
 				
-			} else {
-				echo "You're banned, probably.";
 			}
 		}else{
 			echo "forums.error.unknown";
