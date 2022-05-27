@@ -1,9 +1,11 @@
 <?php
+error_reporting(E_ALL);
 	function process($txt){
-		$arr = explode("\r\n", file_get_contents("badwords.txt"));
+		$arr = explode("\n", file_get_contents("badwords.txt"));
 
 		foreach ($arr as $word)
 		{
+			$txt = str_replace("\r", "\n", $txt);
 			$txt = str_ireplace($word, "****", $txt);
 		}
 		$txt = htmlspecialchars($txt);
@@ -69,8 +71,6 @@
 		":ht:" => "<img alt='Honey Troll' src='i/honey_troll.png' />"
 		
 		);
-		$txt = str_replace(array_keys($plazaEmotes), array_values($plazaEmotes), $txt);
-		
 		$url = '~(?:(https?)://([^\s<]+)|(www\.[^\s<]+?\.[^\s<]+))(?<![\.,:])~i'; 
 		$txt = preg_replace($url, '<a href="$0" target="_blank" title="$0">$0</a>', $txt);
 		
