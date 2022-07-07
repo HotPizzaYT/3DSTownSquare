@@ -17,7 +17,7 @@ if(isset($_COOKIE["cd"]) && intval($_COOKIE["cd"]) >= time()){
 	$iscd = true;
 }
 	session_start();
-	if(isset($_SESSION["ts_user"]) && $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["topic"]) && isset($_POST["title"]) && isset($_POST["cont"]) && isset($_COOKIE["cd"])){
+	if(isset($_SESSION["ts_user"]) && $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["topic"]) && isset($_POST["title"]) && isset($_POST["cont"]) && true){
 		if($_POST["title"] != "" && $_POST["cont"] != "" && strlen($_POST["title"]) <= 32 && strlen($_POST["cont"]) <= 5000){
 			if(file_exists("data/topic/".$_POST["topic"].".json") && json_decode(file_get_contents("../acc/data/".$_SESSION["ts_user"].".json"),true)["banned"] <= 0 && $iscd){
 				setCookie("cd", time()+30000, time()+30000);

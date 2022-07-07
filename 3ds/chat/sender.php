@@ -79,7 +79,7 @@ function hookmsg($qWho, $qMsg){
 					// if(count($jsonD["msg"])+1 >= strval($jsonD["max"])){
 					//	array_pop($jsonD["msg"]);
 					// }
-					$finalmsg = array("cont"=>$msg[1],"time"=>time(),"type"=>"message","color"=>"red","visibility"=>$who,"from"=>$_SESSION["ts_user"]);
+					$finalmsg = array("cont"=>$msg[1],"time"=>time(),"type"=>"message","color"=>"red","visibility"=>$who,"from"=>htmlspecialchars($_SESSION["ts_user"]));
 					array_unshift($jsonD["msg"], $finalmsg);
 					$jsonString = json_encode($jsonD);
 					file_put_contents("data/".$room.".json",$jsonString);

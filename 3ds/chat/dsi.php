@@ -222,6 +222,7 @@ if(isset($_GET["room"])){
 		<title>3DSTownSquare</title>
 		<meta name="viewport" content="width=240">
 		<meta name="description" content="3DSTownSquare Timezone Settings">
+		<meta name="apple-mobile-web-app-capable" content="yes">
 	</head>
 	<!-- I had to set it to normal full long polling because this IN MY HAIR code keeps repeating latest message -->
 	<body onload="getIcons(); setInterval(getfullchat, 1000);">

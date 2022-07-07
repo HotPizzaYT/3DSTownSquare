@@ -71,9 +71,13 @@ error_reporting(E_ALL);
 		":ht:" => "<img alt='Honey Troll' src='i/honey_troll.png' />"
 		
 		);
+
+		$ef = array_keys($plazaEmotes);
+		$er = array_values($plazaEmotes);
+
 		$url = '~(?:(https?)://([^\s<]+)|(www\.[^\s<]+?\.[^\s<]+))(?<![\.,:])~i'; 
 		$txt = preg_replace($url, '<a href="$0" target="_blank" title="$0">$0</a>', $txt);
-		
+		$txt = str_replace($ef, $er, $txt);
 		return $txt;
 	}
 	?>

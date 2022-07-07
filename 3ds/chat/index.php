@@ -64,6 +64,8 @@ if(isset($_GET["room"])){
 				background-color: #00FFFF;
 			}
 		</style>
+		<!-- Allow iOS users to add this to their homescreen -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
 		
 		<!-- Insert polyfill -->
 		<!-- The burger -->

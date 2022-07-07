@@ -17,6 +17,14 @@ body, html {
 	margin: 0px;
 }
 </style>
+<script language="javascript" type="text/javascript">
+function login(u, p){
+	document.getElementById("un").value = u;
+	document.getElementById("pw").value = p;
+	document.getElementById("login").click();
+	void(0);
+}
+</script>
 <!-- Remove WeInRe script -->
 <title>3DSTownSquare Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,10 +33,10 @@ body, html {
 <form action="index.php" method="post" enctype="multipart/form-data">
 <h1>3DSTownSquare Login</h1>
 <p>Username:</p>
-<input type="text" maxlength="16" required name="ts_user" >
+<input type="text" id="un" maxlength="16" required name="ts_user" >
 <p>Password:</p>
-<input type="password" required name="password" >
-<input type="submit" name="submit" value="Log in" >
+<input type="password" id="pw" required name="password" >
+<input type="submit" id="login" name="submit" value="Log in" >
 </form>
 <a href="register.php">I don't have an account!</a>
 <br />
